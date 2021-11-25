@@ -3,12 +3,13 @@
  */
 import { useState, useContext, useEffect } from 'react'
 import generateRandomNote from '../utils/generateRandomNote';
-import ScoreListContext from "../contexts/ScoreContext"
+import ScoreListContext from "../contexts/ScoreContext";
+import StyledLink from '../components/atoms/StyledLink';
 
-import PageContainer from "../components/atoms/PageContainer"
-import H1 from "../components/atoms/H1"
-import P from "../components/atoms/P"
-import Button from "../components/atoms/Button"
+import PageContainer from "../components/atoms/PageContainer";
+import H1 from "../components/atoms/H1";
+import P from "../components/atoms/P";
+import Button from "../components/atoms/Button";
 import SheetMusic from 'react-sheet-music';
 
 /**
@@ -25,7 +26,8 @@ const NoteRecognition = () => {
     const [ msg, setMsg ] = useState('');
     const [ score, setScore ] = useState(0);
     const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
-    const [ questCount, setQuestCount ] = useState(0);
+    const [resultBtnDisabled, setResultBtnDisabled] = useState(true)
+    const [ questCount, setQuestCount ] = useState(1);
 
     /**
      * Check user choice
@@ -39,13 +41,14 @@ const NoteRecognition = () => {
             setMsg('Incorrect')
         }
         setNextBtnDisabled(false);
-
+        console.log('questCount / NbOfQuest: ' + questCount + ' / ' + noteSettings.numberOfQuestions);
         if(questCount >= noteSettings.numberOfQuestions) {
             console.log("finished");
-            const newScore = ({gameId: '1', scoreInPcore: score / noteSettings.numberOfQuestions * 100});
+            const newScore = ({gameId: '1', scoreInPc: score / noteSettings.numberOfQuestions * 100});
             const newScoreList = scoreList.slice();
             newScoreList.push(newScore);
             setScoreList(newScoreList);
+            setResultBtnDisabled(false);
         }
     }
 
@@ -82,6 +85,7 @@ const NoteRecognition = () => {
                 Next Note
             </Button>
             <P>Score: {score}</P>
+            <StyledLink to='/results' ><Button disabled={resultBtnDisabled}>Results</Button></StyledLink>
         </PageContainer>
     )
 }
