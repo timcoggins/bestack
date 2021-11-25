@@ -7,7 +7,7 @@ const GameSelector = (props) => {
         <Container>
 
             <P>{props.title}</P>
-            <img src='./audio-waves.png' alt='start the game' width='40px'/>
+            <img src='./images/audio-waves.png' alt='start the game' width='40px'/>
 
         </Container>
     )

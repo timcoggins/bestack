@@ -10,12 +10,19 @@ const ScoreListContextProvider = ({children}) => {
         difficultyLevel: 'easy',
         questNb: 10,
         ScoreInPc: 0
+        
     }]);
+
+    const [ instrumentSettings, setInstrumentSettings] = useState({
+        difficulty: 'easy'
+    })
 
     return (
         <ScoreListContext.Provider value={{
             scoreList: scoreList,
-            setScoreList: setScoreList
+            setScoreList: setScoreList,
+            instrumentSettings: instrumentSettings,
+            setInstrumentSettings: setInstrumentSettings
         }}>
             {children}
         </ScoreListContext.Provider>
