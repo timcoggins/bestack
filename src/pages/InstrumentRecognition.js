@@ -103,9 +103,11 @@ const InstrumentRecognition = () => {
 
       <Center>
         {!msg && (
-          <audio controls>
+            <div style={{margin: '30px 0'}}>
+          <audio controls >
             <source src={question.audio} type="audio/wav" />
           </audio>
+            </div>
         )}
       </Center>
 

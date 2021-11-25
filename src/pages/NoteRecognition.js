@@ -69,8 +69,13 @@ const NoteRecognition = () => {
     <PageContainer>
       <P>Go ahead, try to identify the notes!</P>
       <P>Score: {score}</P>
-
-      <SheetMusic notation={`${note}4`} />
+      <div style={{marginLeft: '33%'}}>
+        <SheetMusic
+            notation={`${note}4`}
+            responsive='resize'
+            width={100}
+        />
+      </div>
 
       <Controls grid style={{ marginTop: "0" }}>
         <Button onClick={() => checkNote("C")}>C</Button>

@@ -28,7 +28,7 @@ const NavBar = () => {
 export default NavBar
 
 const NavBarTitle = styled.h2`
-    color: white;
+    color: ${props => props.theme.colors.FontHeadingColor};
     transition: .5s ease;
     &:hover {
         color: ${props => props.theme.colors.HoverColor};

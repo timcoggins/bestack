@@ -10,7 +10,11 @@
      colors: {
         PrimaryColor: '#6495EC',
         HoverColor: '#9abaf5',
-        DisabledColor: 'grey'
+        DisabledColor: 'grey',
+        MainBackgroundColor: 'white',
+        CorrectColor: '#6ca240',
+        IncorrectColor: '#da6565',
+        FontHeadingColor: '#ffffff'
     },
  };
  
@@ -21,4 +25,20 @@
  }
  
  export default Theme;
+
+ /*
+ Original theme
+
+  const theme = {
+     colors: {
+        PrimaryColor: '#6495EC',
+        HoverColor: '#9abaf5',
+        DisabledColor: 'grey',
+        MainBackgroundColor: 'white',
+        CorrectColor: '#6ca240',
+        IncorrectColor: '#da6565',
+        FontHeadingColor: '#ffffff'
+    },
+ };
+  */
  
