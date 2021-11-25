@@ -113,13 +113,13 @@ const InstrumentRecognition = () => {
       {/*<P>Questions: {questions} / {instrumentSettings.numberOfQuestions} </P>*/}
 
       <Center>
-        {!userAnswer && (
+
             <div style={{margin: '30px 0'}}>
-          <audio controls >
+              {!userAnswer ? (<audio controls >
             <source src={question.audio} type="audio/wav" />
-          </audio>
+          </audio>) : <div style={{height: '58px'}}/>}
             </div>
-        )}
+
       </Center>
 
       <InstrumentContainer>

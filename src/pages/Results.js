@@ -30,24 +30,26 @@ const Results = () => {
   return (
     <PageContainer>
       <H1>Results</H1>
+        <P>Receive a diamond for every correct answer!</P>
       <P>
         {Object.keys(scoreList).length !== 0
           ? `Last result: ${scoreList[0].scoreInPc} %`
           : "No result yet..."}
       </P>
 
+
       <Center>
         <Table>
           <tbody>
             <tr>
               <th>Game</th>
-              <th>Diamonds Collected</th>
+              <th>Score</th>
             </tr>
             {scoreList &&
               scoreList.map((item, index) => (
                 <tr key={index}>
                   <td>{Games.find(game => game.id === item.gameId).name}</td>
-                  <td>{item.scoreInPc} 💎</td>
+                  <td>{item.scoreInPc}%</td>
                 </tr>
               ))}
           </tbody>

@@ -100,11 +100,11 @@ const NoteRecognition = () => {
         />
       </div>
 
-
-      {!msg && <Center><audio controls >
+      <Center>
+      {!msg ? <audio controls >
         <source src={`./sounds/${note}.wav`} type="audio/wav" />
-      </audio></Center>}
-
+      </audio> : <div style={{height: '54px'}}/>}
+      </Center>
       <Controls grid style={{ marginTop: "0" }}>
         { notes.map(item =>
             <Button onClick={() => checkNote(item)}>{item}</Button>
@@ -115,8 +115,7 @@ const NoteRecognition = () => {
         {/*<Button onClick={() => checkNote("F")}>F</Button>*/}
         {/*<Button onClick={() => checkNote("G")}>G</Button>*/}
         {/*<Button onClick={() => checkNote("A")}>A</Button>*/}
-        {/*<Button onClick={() => checkNote("B")}>B</Button>
-*/}
+        {/*<Button onClick={() => checkNote("B")}>B</Button>*/}
       </Controls>
 
       {msg ? <p>{msg}</p> : ""}
