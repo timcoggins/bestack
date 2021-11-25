@@ -1,5 +1,10 @@
+/**
+ * NoteRecognitionSetup.js
+ */
+// Imports
 import { Link } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
+
 import ScoreListContext from "../contexts/ScoreContext"
 import PageContainer from "../components/atoms/PageContainer";
 import Instruments from "../assets/instrumentList";
@@ -8,10 +13,16 @@ import P from "../components/atoms/P";
 import Select from '../components/atoms/Select';
 import Button from "../components/atoms/Button";
 
+/**
+ * NoteRecognitionSetup
+ * @returns {JSX.Element}
+ */
 const NoteRecognitionSetup = () => {
 
+    // Consume context
     const { scoreList, setScoreList } = useContext(ScoreListContext);
-    
+
+    // Setup state
     const [tmpScore, setTmpScore] = useState({
         gameNb: 1,//Math.max.apply(Math, scoreList.map(function(o) { return o.gameNb; }) + 1),
         gameId: '1',
@@ -20,17 +31,23 @@ const NoteRecognitionSetup = () => {
         questNb: 10,
         ScoreInPc: 0
     });
-   
+
+    /**
+     * Handle the saving the values when the user clicks
+     * @param e
+     */
     const handleClick = (e) => {
         const newScoreList = scoreList.slice();
         newScoreList.push(tmpScore);
         setScoreList(newScoreList);
     }
 
+    // For debugigns
     useEffect(() => {
         console.log(scoreList);
     }, [scoreList]);
 
+    // JSX
     return (
         <PageContainer>
             <H1>Note Recogntion Setup</H1>
