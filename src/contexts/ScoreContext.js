@@ -14,12 +14,12 @@ const ScoreListContextProvider = ({children}) => {
     const [ noteSettings, setNoteSettings] = useState({
         selectedInstrument: '1',
         difficulty: 'easy',
-        numberOfQuestions: 2
+        numberOfQuestions: 5
     })
 
     const [ instrumentSettings, setInstrumentSettings] = useState({
         difficulty: 'easy',
-        numberOfQuestions: 2
+        numberOfQuestions: 5
     })
 
     return (
