@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Button = styled.button`
+    display: block;
     height: 40px;
     width: 100px;
     background: cornflowerblue;
@@ -9,7 +10,6 @@ const Button = styled.button`
 
     &:hover {
         background: grey;
-
     } 
 
 `;
