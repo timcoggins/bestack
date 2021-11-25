@@ -1,18 +1,16 @@
 /**
  * NoteRecognition.js
  */
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import generateRandomNote from '../utils/generateRandomNote';
 import ScoreListContext from "../contexts/ScoreContext";
 import StyledLink from '../components/atoms/StyledLink';
 
 import PageContainer from "../components/atoms/PageContainer";
-import H1 from "../components/atoms/H1";
 import P from "../components/atoms/P";
 import Button from "../components/atoms/Button";
 import SheetMusic from 'react-sheet-music';
 import Controls from '../components/atoms/Controls'
-import Center from '../components/atoms/Center'
 
 /**
  * NoteRecognition
@@ -21,7 +19,7 @@ import Center from '../components/atoms/Center'
 const NoteRecognition = () => {
 
     // Consume context
-    const { noteSettings, setNoteSettings, scoreList, setScoreList } = useContext(ScoreListContext);
+    const { noteSettings, scoreList, setScoreList } = useContext(ScoreListContext);
 
     console.log(noteSettings);
 
