@@ -5,9 +5,8 @@ const ScoreListContext = createContext()
 
 const ScoreListContextProvider = ({children}) => {
     const [scoreList, setScoreList] = useState([{
-        gameId: '1',
-        scoreInPc: 0
-        
+/*         gameId: '1',
+        scoreInPc: 0 */        
     }]);
     
     const [ noteSettings, setNoteSettings] = useState({
