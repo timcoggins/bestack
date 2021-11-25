@@ -111,8 +111,8 @@ const NoteRecognition = () => {
         {currentNotesList.map((element, index) => {
           return (
             <Button
-              onClick={() => checkNote({element})}
-              correct={userAnswer === element && userAnswer === {note}}
+              onClick={() => checkNote(element)}
+              correct={userAnswer === element && userAnswer === note}
               incorrect={checkIncorrect(element)}
             >
               {element}
