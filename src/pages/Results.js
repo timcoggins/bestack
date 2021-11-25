@@ -25,12 +25,12 @@ const Results = () => {
   // Consume the context
   const { scoreList } = useContext(ScoreListContext);
 
-  console.log(scoreList);
+  // console.log(scoreList);
 
   return (
     <PageContainer>
       <H1>Scores</H1>
-        <P>Receive a diamond for every correct answer!</P>
+        <P>Receive a gem for every correct answer!</P>
       <P>
         {Object.keys(scoreList).length !== 0
           ? `Last game: ${scoreList[0].scoreInPc} %`
