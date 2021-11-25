@@ -10,7 +10,7 @@ import ScoreListContext from "../contexts/ScoreContext"
 import PageContainer from "../components/atoms/PageContainer";
 import ChooseNbQuest from '../components/molecules/ChooseNbQuest';
 
-import Instruments from "../assets/instrumentList";
+import NotesList from '../assets/notesList';
 import H1 from "../components/atoms/H1";
 import P from "../components/atoms/P";
 import Select from '../components/atoms/Select';
@@ -29,6 +29,8 @@ const NoteRecognitionSetup = () => {
     // Consume context
     const { noteSettings, setNoteSettings } = useContext(ScoreListContext);
 
+    const instrumentList = NotesList.map(instrument => instrument.name);
+
     // For debugigns
 /*     useEffect(() => {
         console.log(tmpScore);
@@ -43,8 +45,8 @@ const NoteRecognitionSetup = () => {
             <P>Choose your instrument</P>
                 <Select onChange={(e) => setNoteSettings({...noteSettings, selectedInstrument: e.target.value })} >
                     {
-                        Instruments.map((instrument, index) => (
-                            <option key={index} value={instrument.id}>{instrument.name}</option>
+                        instrumentList.map((instrument, index) => (
+                            <option key={index} >{instrument}</option>
                         ))
                     }
                 </Select>
