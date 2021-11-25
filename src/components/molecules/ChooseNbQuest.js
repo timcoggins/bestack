@@ -1,19 +1,17 @@
-import { useContext } from "react";
-import ScoreListContext from "../../contexts/ScoreContext";
 import Select from "../atoms/Select";
 import P from "../atoms/P";
 
-const ChooseNbQuest = () => {
-  // Consume context
-  const { noteSettings, setNoteSettings } = useContext(ScoreListContext);
+const ChooseNbQuest = (props) => {
+
+  const { options, setOptions } = props;
 
   return (
     <>
       <P>Decide how many questions to play</P>
       <Select
         onChange={(e) =>
-          setNoteSettings({
-            ...noteSettings,
+          setOptions({
+            ...options,
             numberOfQuestions: e.target.value,
           })
         }

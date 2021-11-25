@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import ScoreListContext from '../contexts/ScoreContext'
 
+import ChooseDifficulty from '../components/molecules/ChooseDifficulty';
 import ChooseNbQuest from '../components/molecules/ChooseNbQuest';
 
 import StyledLink from '../components/atoms/StyledLink';
@@ -40,15 +41,11 @@ const InstrumentRecognitionSetup = () => {
     return (
         <PageContainer>
             <H1>Instrument Recogntion Setup</H1>
-            <P>Choose an difficulty</P>
-            <Select value={instrumentSettings.difficulty} onChange={(e) => handleChange(e)}>
-                <option value='easy'>Easy</option>
-                <option value='medium'>Medium</option>
-                <option value='hard'>Hard</option>
-            </Select>
 
-            <ChooseNbQuest />
-            
+            <ChooseDifficulty  options={instrumentSettings} setOptions={setInstrumentSettings} />
+
+            <ChooseNbQuest options={instrumentSettings} setOptions={setInstrumentSettings} />
+
             <StyledLink to='/instrumentrecognition'><Button>Start Game</Button></StyledLink>
         </PageContainer>
     )
