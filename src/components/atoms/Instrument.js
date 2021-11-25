@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Instrument = styled.div`
     background:  ${props => props.theme.colors.PrimaryColor};
@@ -6,9 +6,16 @@ const Instrument = styled.div`
     color: white;
     padding: 20px;
     text-align: center;
+    transition: .5s ease;
     &:hover {
-        background: grey
+        background: ${props => props.theme.colors.HoverColor};
     }
+    ${props => props.correct && css`
+      background: #6ca240;
+    `}
+    ${props => props.incorrect && css`
+      background: #da6565;
+    `}
 `;
 
 export default Instrument

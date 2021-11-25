@@ -24,6 +24,7 @@ import Controls from "../components/atoms/Controls";
  * @constructor
  */
 const InstrumentRecognition = () => {
+
   // Consume the context
   const { instrumentSettings, scoreList, setScoreList } =
     useContext(ScoreListContext);
@@ -133,3 +134,4 @@ const InstrumentRecognition = () => {
 };
 
 export default InstrumentRecognition;
+
