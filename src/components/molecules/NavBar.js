@@ -7,7 +7,13 @@ const NavBar = () => {
 
     return (
         <Nav>
-            <Link to='/'><P>Music Trainer</P></Link>
+            <div>
+            <Link to='/'>
+                <Logo src='./images/BEStackLogo.png'/> 
+                {/* <P>Music Trainer</P> */}
+            </Link>
+            Music Trainer
+            </div>
             <P>Something</P>
         </Nav>
     )
