@@ -27,8 +27,8 @@ const NoteRecognition = () => {
     const [ note, setNote ] = useState(`${generateRandomNote('easy', 'piano')}`);
     const [ msg, setMsg ] = useState('');
     const [ score, setScore ] = useState(0);
-    const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
-    const [resultBtnDisabled, setResultBtnDisabled] = useState(true)
+    const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
+    const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
     const [ questCount, setQuestCount ] = useState(1);
 
     /**
