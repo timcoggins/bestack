@@ -12,6 +12,7 @@ import Instruments from "../assets/instrumentList";
 import H1 from "../components/atoms/H1";
 import P from "../components/atoms/P";
 import Select from '../components/atoms/Select';
+import Input from '../components/atoms/Input';
 import Button from "../components/atoms/Button";
 
 /**
@@ -44,8 +45,8 @@ const NoteRecognitionSetup = () => {
 
     // For debugigns
     useEffect(() => {
-        console.log(scoreList);
-    }, [scoreList]);
+        console.log(tmpScore);
+    }, [tmpScore]);
 
     // JSX
     return (
@@ -61,11 +62,19 @@ const NoteRecognitionSetup = () => {
             </Select>
 
             <P>Choose an difficulty</P>
-            <Select onChange={(e) => setTmpScore({...tmpScore, difficultyLevel: e.target.value })}>
+            <Select onChange={(e) => setTmpScore({...tmpScore, difficultyLevel: e.target.value })} >
                 <option value={'easy'} >Easy</option>
                 <option value={'medium'} >Medium</option>
                 <option value={'hard'} >Hard</option>
             </Select>
+
+            <P>Decide how many questions to play</P>
+            <Input
+                type="number"
+                onChange={(e) => setTmpScore({...tmpScore, questNb: parseInt(e.target.value, 10) })}
+                value={tmpScore.questNb}
+            />
+     
             <StyledLink to='/noterecognition'><Button onClick={handleClick}>Start Game</Button></StyledLink>
         </PageContainer>
     )
