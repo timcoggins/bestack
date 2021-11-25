@@ -3,7 +3,8 @@
  */
 
 // Imports
-import { Link } from 'react-router-dom';
+/* import { Link } from 'react-router-dom'; */
+import StyledLink from '../components/atoms/StyledLink';
 import PageContainer from "../components/atoms/PageContainer"
 import H1 from "../components/atoms/H1"
 import P from "../components/atoms/P"
@@ -35,8 +36,8 @@ const Results = () => {
             </tr>
             </table>
 
-            <Link to='/noterecognitionsetup'><Button> Start Again </Button></Link>
-            <Link to='/home'><Button> Home </Button></Link>
+            <StyledLink to='/noterecognitionsetup'><Button> Start Again </Button></StyledLink>
+            <StyledLink to='/home'><Button> Home </Button></StyledLink>
 
         </PageContainer>
     )
