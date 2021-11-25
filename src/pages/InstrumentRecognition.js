@@ -43,6 +43,7 @@ const InstrumentRecognition = () => {
     const [ msg, setMsg ] = useState('')
     const [ score, setScore ] = useState(0)
     const [ questions, setQuestions ] = useState(0)
+    const [ userAnswer, setUserAnswer ] = useState('')
 
 
     /**
@@ -56,14 +57,18 @@ const InstrumentRecognition = () => {
         // Check the answer
         if (answer === question.name) {
             setMsg('Correct')
+            setUserAnswer(question.name);
             setScore(score+1);
             setQuestions(questions + 1)
+
         } else {
+
             setMsg('Incorrect')
             setQuestions(questions + 1)
         }
     }
 
+    console.log(userAnswer)
     /**
      * Goes to the next question or the results page
      */
@@ -77,7 +82,7 @@ const InstrumentRecognition = () => {
                 gameId: '2',
                 difficultyLevel: instrumentSettings.difficulty,
                 questNb: questions,
-                ScoreInPc: score
+                scoreInPc: score
             }])
             setResultBtnDisabled(false);
             //setInterval(() => window.location = '/results', 2000);
@@ -101,7 +106,7 @@ const InstrumentRecognition = () => {
 
             <InstrumentContainer>
                 {FilteredInstruments.map((item, index) => 
-                    <Instrument key={index} onClick={() => checkAnswer(item.name)}>
+                    <Instrument key={index} onClick={() => checkAnswer(item.name)} correct={userAnswer === item.name}>
                         <InstrumentImg src={`${item.icon}`} />
                         <P>{item.name}</P>
                     </Instrument>
