@@ -12,6 +12,7 @@ import H1 from "../components/atoms/H1"
 import P from "../components/atoms/P"
 import Select from '../components/atoms/Select'
 import Button from "../components/atoms/Button"
+import Input from "../components/atoms/Input"
 
 /**
  * InstrumentRecognitionSetup
@@ -20,13 +21,17 @@ import Button from "../components/atoms/Button"
 const InstrumentRecognitionSetup = () => {
 
     const { instrumentSettings, setInstrumentSettings } = useContext(ScoreListContext);
-
+    console.log(instrumentSettings.numberOfQuestions)
     /**
      * HandleChange
      * @param {*} e 
      */
     const handleChange = (e) => setInstrumentSettings({...instrumentSettings, difficulty: e.target.value});
 
+    /**
+     * Handle when the user changes the number of questions
+     */
+    const handleQuestionsChange = (e) => setInstrumentSettings({...instrumentSettings, numberOfQuestions: parseInt(e.target.value)});
 
     return (
         <PageContainer>
@@ -35,9 +40,17 @@ const InstrumentRecognitionSetup = () => {
             <Select value={instrumentSettings.difficulty} onChange={(e) => handleChange(e)}>
                 <option value='easy'>Easy</option>
                 <option value='medium'>Medium</option>
-                <option value='difficult'>Difficult</option>
-                <option value='expert'>Expert</option>
+                <option value='hard'>Hard</option>
             </Select>
+
+            <P>Decide how many questions to play</P>
+            <Input
+                type="number"
+                min="1"
+                max="10"
+                onChange={(e) => handleQuestionsChange(e)}
+                value={instrumentSettings.numberOfQuestions}
+            />
             <StyledLink to='/instrumentrecognition'><Button>Start Game</Button></StyledLink>
         </PageContainer>
     )
