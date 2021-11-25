@@ -64,6 +64,17 @@ const NoteRecognition = () => {
     }
   };
 
+      /**
+     * Manage the green and red color for the right and wrong answer buttons
+     * @param {string} element 
+     * @returns {string}
+     */
+/*        const handleSelect = (element) => {
+        if (selectedAnswer === element && selectedAnswer !== quizQuestion.correct_answer) return "wrong-answer-btn"
+        else if (element === quizQuestion.correct_answer) return "right-answer-btn"
+        else return null // for the wrong answers that were not selected
+    } */
+
   // JSX
   return (
     <PageContainer>
