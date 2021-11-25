@@ -13,7 +13,7 @@ const Footer = () => {
 export default Footer
 
 const FooterContainer = styled.footer`
-    background: cornflowerblue;
+    background:  ${props => props.theme.colors.PrimaryColor};
     text-align: center;
     color: white;
     padding: 15px;
