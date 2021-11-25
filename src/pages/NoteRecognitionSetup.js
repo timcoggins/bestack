@@ -24,7 +24,6 @@ const NoteRecognitionSetup = () => {
 
     // Setup state
     const [tmpScore, setTmpScore] = useState({
-        gameNb: 1,//Math.max.apply(Math, scoreList.map(function(o) { return o.gameNb; }) + 1),
         gameId: '1',
         selectedInstrument: '1',
         difficultyLevel: 'easy',
@@ -54,8 +53,8 @@ const NoteRecognitionSetup = () => {
             <P>Choose an instrument</P>
             <Select onChange={(e) => setTmpScore({...tmpScore, selectedInstrument: e.target.value })} >                
                 {
-                    Instruments.map(instrument => (
-                        <option key={instrument.id} value={instrument.id}>{instrument.name}</option>
+                    Instruments.map((instrument, index) => (
+                        <option key={index} value={instrument.id}>{instrument.name}</option>
                     ))
                 }
             </Select>
@@ -64,9 +63,9 @@ const NoteRecognitionSetup = () => {
             <Select onChange={(e) => setTmpScore({...tmpScore, difficultyLevel: e.target.value })}>
                 <option value={'easy'} >Easy</option>
                 <option value={'medium'} >Medium</option>
-                <option value={'difficult'} >Difficult</option>
+                <option value={'hard'} >Hard</option>
             </Select>
-            <Link to='/noterecognition'><Button onClick={handleClick}>Start Game</Button></Link>
+            <Link to='/noterecognition' style={{ textDecoration: 'none' }} ><Button onClick={handleClick}>Start Game</Button></Link>
         </PageContainer>
     )
 }

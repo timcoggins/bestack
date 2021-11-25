@@ -4,7 +4,7 @@ const Nav = styled.nav`
     display: flex;
     place-content: space-between;
     align-items: center;
-    background: cornflowerblue;
+    background:  ${props => props.theme.colors.PrimaryColor};
     padding: 15px;
     color: white;
 `;
