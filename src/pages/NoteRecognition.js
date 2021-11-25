@@ -11,9 +11,14 @@ import P from "../components/atoms/P";
 import Button from "../components/atoms/Button";
 import SheetMusic from "react-sheet-music";
 import Controls from "../components/atoms/Controls";
+<<<<<<< HEAD
+import NotesList from "../assets/notesList";
+import Instruments from "../assets/instrumentList";
+=======
 import Center from "../components/atoms/Center";
 
 const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+>>>>>>> 27e775c34490c6c78da27d440baf96ed90eb8c01
 
 /**
  * NoteRecognition
@@ -24,9 +29,8 @@ const NoteRecognition = () => {
   const { noteSettings, scoreList, setScoreList, gem, setGem } =
     useContext(ScoreListContext);
 
-  console.log(noteSettings);
-
   // State variables
+  const currentNotesList = NotesList.filter(instrument => instrument.name === noteSettings.selectedInstrument)[0].notes.easy;
   const [note, setNote] = useState(`${generateRandomNote("easy", "piano")}`);
   const [msg, setMsg] = useState("");
   const [score, setScore] = useState(0);
@@ -106,16 +110,11 @@ const NoteRecognition = () => {
       </audio> : <div style={{height: '54px'}}/>}
       </Center>
       <Controls grid style={{ marginTop: "0" }}>
-        { notes.map(item =>
-            <Button onClick={() => checkNote(item)}>{item}</Button>
-        )}
-        {/*<Button onClick={() => checkNote("C")}>C</Button>*/}
-        {/*<Button onClick={() => checkNote("D")}>D</Button>*/}
-        {/*<Button onClick={() => checkNote("E")}>E</Button>*/}
-        {/*<Button onClick={() => checkNote("F")}>F</Button>*/}
-        {/*<Button onClick={() => checkNote("G")}>G</Button>*/}
-        {/*<Button onClick={() => checkNote("A")}>A</Button>*/}
-        {/*<Button onClick={() => checkNote("B")}>B</Button>*/}
+        {currentNotesList.map((note, index) => {
+          return (
+            <Button onClick={() => checkNote({note})}>{note}</Button>
+          )
+        })}
       </Controls>
 
       {msg ? <p>{msg}</p> : ""}
