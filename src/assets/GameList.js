@@ -1,11 +1,11 @@
 const Games = [
     {
         id: "1",
-        name: "Note recognition"
+        name: "What's that Note?"
     },
     {
         id: "2",
-        name: "Instrument recognition"
+        name: "What's that Instrument"
     }
 ]
 
