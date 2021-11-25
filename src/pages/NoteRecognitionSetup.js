@@ -4,15 +4,16 @@
 // Imports
 /* import { Link } from 'react-router-dom'; */
 import StyledLink from '../components/atoms/StyledLink';
-import { useState, useContext, useEffect } from 'react';
-
+import { useContext } from 'react';
 import ScoreListContext from "../contexts/ScoreContext"
+
 import PageContainer from "../components/atoms/PageContainer";
+import ChooseNbQuest from '../components/molecules/ChooseNbQuest';
+
 import Instruments from "../assets/instrumentList";
 import H1 from "../components/atoms/H1";
 import P from "../components/atoms/P";
 import Select from '../components/atoms/Select';
-import Input from '../components/atoms/Input';
 import Button from "../components/atoms/Button";
 
 /**
@@ -49,12 +50,7 @@ const NoteRecognitionSetup = () => {
                 <option value={'hard'} >Hard</option>
             </Select>
 
-            <P>Decide how many questions to play</P>
-            <Select onChange={(e) => setNoteSettings({...noteSettings, numberOfQuestions: e.target.value })} >
-                <option value={5} >5</option>
-                <option value={10} >10</option>
-                <option value={20} >20</option>
-            </Select>
+            <ChooseNbQuest />
      
             <StyledLink to='/noterecognition'><Button>Start Game</Button></StyledLink>
         </PageContainer>

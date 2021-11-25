@@ -3,9 +3,13 @@
  * Game options
  */
 
+import { Link } from 'react-router-dom'
+
 import { useContext } from 'react'
 import ScoreListContext from '../contexts/ScoreContext'
-import { Link } from 'react-router-dom'
+
+import ChooseNbQuest from '../components/molecules/ChooseNbQuest';
+
 import StyledLink from '../components/atoms/StyledLink';
 import PageContainer from "../components/atoms/PageContainer"
 import H1 from "../components/atoms/H1"
@@ -43,14 +47,8 @@ const InstrumentRecognitionSetup = () => {
                 <option value='hard'>Hard</option>
             </Select>
 
-            <P>Decide how many questions to play</P>
-            <Input
-                type="number"
-                min="1"
-                max="10"
-                onChange={(e) => handleQuestionsChange(e)}
-                value={instrumentSettings.numberOfQuestions}
-            />
+            <ChooseNbQuest />
+            
             <StyledLink to='/instrumentrecognition'><Button>Start Game</Button></StyledLink>
         </PageContainer>
     )
