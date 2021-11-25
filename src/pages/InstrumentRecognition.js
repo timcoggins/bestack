@@ -28,6 +28,7 @@ const InstrumentRecognition = () => {
   const { instrumentSettings, scoreList, setScoreList } =
     useContext(ScoreListContext);
   const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
+  const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
 
   console.log(instrumentSettings);
 
@@ -61,11 +62,11 @@ const InstrumentRecognition = () => {
     if (answer === question.name) {
       setMsg("Correct");
       setScore(score + 1);
-      setQuestions(questions + 1);
     } else {
       setMsg("Incorrect");
-      setQuestions(questions + 1);
     }
+    setQuestions(questions + 1);
+    setNextBtnDisabled(false);
   };
 
   /**
@@ -124,7 +125,7 @@ const InstrumentRecognition = () => {
             <Button>Finish</Button>
           </StyledLink>
         ) : (
-          <Button onClick={() => nextQuestion()}>Next</Button>
+          <Button disabled={nextBtnDisabled} onClick={() => nextQuestion()}>Next</Button>
         )}
       </Controls>
     </PageContainer>
