@@ -46,7 +46,7 @@ const NoteRecognitionSetup = () => {
             <Select onChange={(e) => setTmpScore({...tmpScore, difficultyLevel: e.target.value })}>
                 <option value={'easy'} >Easy</option>
                 <option value={'medium'} >Medium</option>
-                <option value={'difficult'} >Difficult</option>
+                <option value={'hard'} >Hard</option>
             </Select>
             <Link to='/noterecognition'><Button onClick={handleClick}>Start Game</Button></Link>
         </PageContainer>
