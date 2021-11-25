@@ -15,7 +15,7 @@ const NoteRecognitionSetup = () => {
                 {
                     Instruments.map(instrument => {
                         return (
-                            <option key={instrument.id}>{instrument.name}></option>
+                            <option key={instrument.id}>{instrument.name}</option>
                         )
                     })
                 }
