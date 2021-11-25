@@ -1,7 +1,7 @@
 /**
  * NoteRecognition.js
  */
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import generateRandomNote from '../utils/generateRandomNote';
 import ScoreListContext from "../contexts/ScoreContext"
 
@@ -18,9 +18,8 @@ import SheetMusic from 'react-sheet-music';
 const NoteRecognition = () => {
 
     // Consume context
-    const { scoreList, setScoreList } = useContext(ScoreListContext);
-    const [ currentScore, setCurrentScore ] = useState(scoreList.slice(-1));
-    console.log(currentScore);
+    const { noteSettings, setNoteSettings, scoreList, setScoreList } = useContext(ScoreListContext);
+
     // State variables
     const [ note, setNote ] = useState(`${generateRandomNote('easy', 'piano')}`);
     const [ msg, setMsg ] = useState('');
@@ -40,16 +39,19 @@ const NoteRecognition = () => {
             setMsg('Incorrect')
         }
         setNextBtnDisabled(false);
-        
-        if(questCount >= currentScore.questNb) {
+
+        if(questCount >= noteSettings.numberOfQuestions) {
             console.log("finished");
-            setCurrentScore(score / currentScore.questNb * 100);
+            const newScore = ({gameId: '1', scoreInPcore: score / noteSettings.numberOfQuestions * 100});
             const newScoreList = scoreList.slice();
-            newScoreList.push(currentScore);
+            newScoreList.push(newScore);
             setScoreList(newScoreList);
-            window.location = '/results'
         }
     }
+
+    useEffect (() => {
+        console.log(scoreList);
+    }, [scoreList]);
 
     // JSX
     return (
