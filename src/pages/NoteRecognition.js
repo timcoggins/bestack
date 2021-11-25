@@ -39,9 +39,10 @@ const NoteRecognition = () => {
         } else {
             setMsg('Incorrect')
         }
-        setQuestCount(questCount + 1);
         setNextBtnDisabled(false);
+        
         if(questCount >= currentScore.questNb) {
+            console.log("finished");
             setCurrentScore(score / currentScore.questNb * 100);
             const newScoreList = scoreList.slice();
             newScoreList.push(currentScore);
@@ -72,7 +73,8 @@ const NoteRecognition = () => {
                 disabled={nextBtnDisabled}
                 onClick={() => {
                 setNote(`${generateRandomNote('easy', 'piano')}`);
-                setMsg('')
+                setMsg('');
+                setQuestCount(questCount + 1);
             }}
             >
                 Next Note
