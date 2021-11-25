@@ -11,8 +11,14 @@ import P from "../components/atoms/P";
 import Button from "../components/atoms/Button";
 import SheetMusic from "react-sheet-music";
 import Controls from "../components/atoms/Controls";
+<<<<<<< HEAD
 import NotesList from "../assets/notesList";
 import Instruments from "../assets/instrumentList";
+=======
+import Center from "../components/atoms/Center";
+
+const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+>>>>>>> 27e775c34490c6c78da27d440baf96ed90eb8c01
 
 /**
  * NoteRecognition
@@ -31,6 +37,9 @@ const NoteRecognition = () => {
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
   const [questCount, setQuestCount] = useState(1);
+  const [ userAnswer, setUserAnswer ] = useState('')
+
+
 
   /**
    * Check user choice
@@ -76,6 +85,12 @@ const NoteRecognition = () => {
         else return null // for the wrong answers that were not selected
     } */
 
+  /**
+   * Check if an answer was incorrect and makes it red in the map or something idk its really late, too tired... but it works i guess
+   * @param name
+   */
+  // const checkIncorrect = (name) => (name === userAnswer && userAnswer !== question.name)
+
   // JSX
   return (
     <PageContainer>
@@ -89,6 +104,11 @@ const NoteRecognition = () => {
         />
       </div>
 
+      <Center>
+      {!msg ? <audio controls >
+        <source src={`./sounds/${note}.wav`} type="audio/wav" />
+      </audio> : <div style={{height: '54px'}}/>}
+      </Center>
       <Controls grid style={{ marginTop: "0" }}>
         {currentNotesList.map((note, index) => {
           return (
