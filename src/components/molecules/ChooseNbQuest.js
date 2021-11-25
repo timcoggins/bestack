@@ -15,6 +15,7 @@ const ChooseNbQuest = (props) => {
             numberOfQuestions: e.target.value,
           })
         }
+        value={options.numberOfQuestions}
       >
         <option value={5}>5</option>
         <option value={10}>10</option>
