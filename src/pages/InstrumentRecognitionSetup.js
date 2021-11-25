@@ -2,9 +2,11 @@
  * InstrumentRecognitionSetup
  * Game options
  */
+
 import { useContext } from 'react'
 import ScoreListContext from '../contexts/ScoreContext'
 import { Link } from 'react-router-dom'
+import StyledLink from '../components/atoms/StyledLink';
 import PageContainer from "../components/atoms/PageContainer"
 import H1 from "../components/atoms/H1"
 import P from "../components/atoms/P"
@@ -36,7 +38,7 @@ const InstrumentRecognitionSetup = () => {
                 <option value='difficult'>Difficult</option>
                 <option value='expert'>Expert</option>
             </Select>
-            <Link to='/instrumentrecognition'><Button>Start Game</Button></Link>
+            <StyledLink to='/instrumentrecognition'><Button>Start Game</Button></StyledLink>
         </PageContainer>
     )
 }
