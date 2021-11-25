@@ -8,7 +8,7 @@ const ScoreListContextProvider = ({children}) => {
         gameId: '1',
         selectedInstrument: '1',
         difficultyLevel: 'easy',
-        questNb: 10,
+        questNb: 5,
         ScoreInPc: 0
         
     }]);
