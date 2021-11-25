@@ -22,26 +22,7 @@ import Button from "../components/atoms/Button";
 const NoteRecognitionSetup = () => {
 
     // Consume context
-    const { scoreList, setScoreList } = useContext(ScoreListContext);
-
-    // Setup state
-    const [tmpScore, setTmpScore] = useState({
-        gameId: '1',
-        selectedInstrument: '1',
-        difficultyLevel: 'easy',
-        questNb: 5,
-        ScoreInPc: 0
-    });
-
-    /**
-     * Handle the saving the values when the user clicks
-     * @param e
-     */
-    const handleClick = (e) => {
-        const newScoreList = scoreList.slice();
-        newScoreList.push(tmpScore);
-        setScoreList(newScoreList);
-    }
+    const { noteSettings, setNoteSettings } = useContext(ScoreListContext);
 
     // For debugigns
 /*     useEffect(() => {
@@ -53,7 +34,7 @@ const NoteRecognitionSetup = () => {
         <PageContainer>
             <H1>Note Recogntion Setup</H1>
             <P>Choose an instrument</P>
-            <Select onChange={(e) => setTmpScore({...tmpScore, selectedInstrument: e.target.value })} >                
+            <Select onChange={(e) => setNoteSettings({...noteSettings, selectedInstrument: e.target.value })} >                
                 {
                     Instruments.map((instrument, index) => (
                         <option key={index} value={instrument.id}>{instrument.name}</option>
@@ -62,7 +43,7 @@ const NoteRecognitionSetup = () => {
             </Select>
 
             <P>Choose an difficulty</P>
-            <Select onChange={(e) => setTmpScore({...tmpScore, difficultyLevel: e.target.value })} >
+            <Select onChange={(e) => setNoteSettings({...noteSettings, difficulty: e.target.value })} >
                 <option value={'easy'} >Easy</option>
                 <option value={'medium'} >Medium</option>
                 <option value={'hard'} >Hard</option>
@@ -73,11 +54,11 @@ const NoteRecognitionSetup = () => {
                 type="number"
                 min="1"
                 max="10"
-                onChange={(e) => setTmpScore({...tmpScore, questNb: parseInt(e.target.value, 10) })}
-                value={tmpScore.questNb}
+                onChange={(e) => setNoteSettings({...noteSettings, numberOfQuestions: parseInt(e.target.value, 10) })}
+                value={noteSettings.numberOfQuestions}
             />
      
-            <StyledLink to='/noterecognition'><Button onClick={handleClick}>Start Game</Button></StyledLink>
+            <StyledLink to='/noterecognition'><Button>Start Game</Button></StyledLink>
         </PageContainer>
     )
 }
