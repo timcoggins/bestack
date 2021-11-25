@@ -65,7 +65,7 @@ const NoteRecognitionSetup = () => {
                 <option value={'medium'} >Medium</option>
                 <option value={'hard'} >Hard</option>
             </Select>
-            <Link to='/noterecognition'><Button onClick={handleClick}>Start Game</Button></Link>
+            <Link to='/noterecognition' style={{ textDecoration: 'none' }} ><Button onClick={handleClick}>Start Game</Button></Link>
         </PageContainer>
     )
 }

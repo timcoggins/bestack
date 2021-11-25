@@ -20,10 +20,10 @@ const Home = (props) => {
         <PageContainer>
             <H1>Welcome To the game</H1>
             <P>Choose a game below</P>
-            <Link to='/noterecognitionsetup'><GameSelector title={'Note Recoginiton'}/></Link>
-            <Link to='/instrumentrecognitionsetup'><GameSelector title={'Instrument Recoginiton'}/></Link>
+            <Link to='/noterecognitionsetup' style={{ textDecoration: 'none' }} ><GameSelector title={'Note Recoginiton'}/></Link>
+            <Link to='/instrumentrecognitionsetup' style={{ textDecoration: 'none' }} ><GameSelector title={'Instrument Recoginiton'}/></Link>
             <P>See your results</P>
-            <Link to='/results'><Button>Results</Button></Link>
+            <Link to='/results' style={{ textDecoration: 'none' }} ><Button>Results</Button></Link>
         </PageContainer>
     )
 }
