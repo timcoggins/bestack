@@ -14,7 +14,8 @@ const ScoreListContextProvider = ({children}) => {
     }]);
 
     const [ instrumentSettings, setInstrumentSettings] = useState({
-        difficulty: 'easy'
+        difficulty: 'easy',
+        numberOfQuestions: 10
     })
 
     return (

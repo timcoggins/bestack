@@ -36,7 +36,8 @@ const InstrumentRecognition = () => {
     // Declare state variables
     const [ question, setQuestion ] = useState(FilteredInstruments[generateRandomInstrument(FilteredInstruments)]);
     const [ msg, setMsg ] = useState('')
-    const [score, setScore ] = useState(0)
+    const [ score, setScore ] = useState(0)
+    const [ questions, setQuestions ] = useState(0)
 
 
     /**
@@ -44,11 +45,18 @@ const InstrumentRecognition = () => {
      * @param answer
      */
     const checkAnswer = (answer) => {
+        // If the user has already chosen an answer dont listen to another
+        if(msg !== '') return
+
+        // Check the answer
         if (answer === question.name) {
             setMsg('Correct')
             setScore(score+1);
+            setQuestions(questions + 1)
+        } else {
+            setMsg('Incorrect')
+            setQuestions(questions + 1)
         }
-        else setMsg('Incorrect')
     }
 
 
@@ -59,6 +67,7 @@ const InstrumentRecognition = () => {
             <P>Listen and choose an instrument</P>
             <P>Difficulty: {instrumentSettings.difficulty}</P>
             <P>Score: {score}</P>
+            <P>Questions: {questions} / {instrumentSettings.numberOfQuestions} </P>
 
             <Center>
                 {!msg && <audio controls>
@@ -78,8 +87,15 @@ const InstrumentRecognition = () => {
             <P>{msg}</P>
 
             <Button onClick={() => {
-                setMsg('')
-                setQuestion(FilteredInstruments[generateRandomInstrument(FilteredInstruments)])
+                if(questions !== instrumentSettings.numberOfQuestions) {
+                    setMsg('')
+                    setQuestion(FilteredInstruments[generateRandomInstrument(FilteredInstruments)])
+                } else {
+                    setMsg('Finished!')
+                    // TODO Add score to the context
+                    window.location = '/results'
+                }
+                
             }}>Next</Button>
 
         </PageContainer>
