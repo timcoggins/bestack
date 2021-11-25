@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const H1 = styled.h1`
+const Logo = styled.img`
 
 
 `;
 
-export default H1
+export default Logo
