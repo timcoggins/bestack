@@ -2,7 +2,8 @@
  * NoteRecognitionSetup.js
  */
 // Imports
-import { Link } from 'react-router-dom';
+/* import { Link } from 'react-router-dom'; */
+import StyledLink from '../components/atoms/StyledLink';
 import { useState, useContext, useEffect } from 'react';
 
 import ScoreListContext from "../contexts/ScoreContext"
@@ -65,7 +66,7 @@ const NoteRecognitionSetup = () => {
                 <option value={'medium'} >Medium</option>
                 <option value={'hard'} >Hard</option>
             </Select>
-            <Link to='/noterecognition' style={{ textDecoration: 'none' }} ><Button onClick={handleClick}>Start Game</Button></Link>
+            <StyledLink to='/noterecognition'><Button onClick={handleClick}>Start Game</Button></StyledLink>
         </PageContainer>
     )
 }
