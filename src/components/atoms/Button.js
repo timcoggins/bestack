@@ -19,6 +19,12 @@ const Button = styled.button`
     ${props => props.disabled && css`
       background: ${props => props.theme.colors.DisabledColor};
     `}
+    ${props => props.correct && css`
+      background: #6ca240;
+    `}
+    ${props => props.incorrect && css`
+      background: #da6565;
+    `}
 
 `;
 
