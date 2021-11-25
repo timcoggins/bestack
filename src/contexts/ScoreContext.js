@@ -4,10 +4,12 @@ import { createContext, useState } from "react";
 const ScoreListContext = createContext()
 
 const ScoreListContextProvider = ({children}) => {
-    const [scoreList, setScoreList] = useState([{
-/*         gameId: '1',
-        scoreInPc: 0 */        
-    }]);
+    const [scoreList, setScoreList] = useState([
+        /* {
+            gameId: '1',
+            scoreInPc: 0        
+        } */
+    ]);
     
     const [ noteSettings, setNoteSettings] = useState({
         selectedInstrument: '1',
