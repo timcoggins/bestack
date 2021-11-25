@@ -13,6 +13,7 @@ import H1 from "../components/atoms/H1"
 import P from "../components/atoms/P"
 import Button from "../components/atoms/Button";
 import Table from '../components/atoms/Table';
+import Center from '../components/atoms/Center'
 
 /**
  * Results
@@ -34,22 +35,24 @@ const Results = () => {
                 }
             </P>
 
-            <Table>
-                <tbody>
-                    <tr>
-                        <th>Game</th><th>Score in %</th>
-                    </tr>
-                    {scoreList && scoreList.map((item, index) => 
-                    <tr key={index}>
-                        <td>{item.gameId}</td><td>{item.scoreInPc}%</td>
-                    </tr>
-                    )}
-                </tbody>
-            </Table>
+            <Center>
+                <Table>
+                    <tbody>
+                        <tr>
+                            <th>Game</th><th>Diamonds Collected</th>
+                        </tr>
+                        {scoreList && scoreList.map((item, index) => 
+                        <tr key={index}>
+                            <td>{item.gameId}</td><td>{item.scoreInPc} 💎</td>
+                        </tr>
+                        )}
+                    </tbody>
+                </Table>
+            </Center>
 
-            <StyledLink to='/noterecognitionsetup'><Button> Start Again </Button></StyledLink>
-            <StyledLink to='/home'><Button> Home </Button></StyledLink>
-
+            <Center style={{marginTop: '80px'}}>
+                <StyledLink to='/home'><Button> Home </Button></StyledLink>
+            </Center>                    
         </PageContainer>
     )
 }
