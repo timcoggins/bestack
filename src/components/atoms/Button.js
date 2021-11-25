@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 const Button = styled.button`
     display: block;
-    border-radius: 4px;
+    border-radius: 500px;
     height: 60px; 
     width: 120px;
     background: ${props => props.theme.colors.PrimaryColor};
@@ -21,9 +21,17 @@ const Button = styled.button`
     `}
     ${props => props.correct && css`
       background: ${props => props.theme.colors.CorrectColor};
+      &:hover {
+        background: ${props => props.theme.colors.CorrectColor};
+      }
+      
     `}
     ${props => props.incorrect && css`
       background: ${props => props.theme.colors.IncorrectColor};
+      &:hover {
+        background: ${props => props.theme.colors.IncorrectColor};
+      }
+      
     `}
 
 `;

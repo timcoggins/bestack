@@ -1,4 +1,4 @@
-const notesList = [
+const NotesList = [
 
     {
         id: 0,
@@ -29,4 +29,4 @@ const notesList = [
     }
 ];
 
-export default notesList;
+export default NotesList;

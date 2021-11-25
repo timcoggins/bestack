@@ -16,7 +16,7 @@ const NavBar = () => {
             <div>
                 <Link to='/' style={{textDecoration: 'none'}}>
                     {/* <Logo src='./images/BEStackLogo.png'/>   */}
-                    <NavBarTitle>Train your Theory</NavBarTitle>
+                    <NavBarTitle>MusicGem</NavBarTitle>
                 </Link>
                 
             </div>

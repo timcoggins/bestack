@@ -7,6 +7,8 @@
 import { useContext } from "react";
 import ScoreListContext from "../contexts/ScoreContext";
 
+import Games from "../assets/GameList";
+
 import StyledLink from "../components/atoms/StyledLink";
 import PageContainer from "../components/atoms/PageContainer";
 import H1 from "../components/atoms/H1";
@@ -23,36 +25,40 @@ const Results = () => {
   // Consume the context
   const { scoreList } = useContext(ScoreListContext);
 
-  console.log(scoreList);
+  // console.log(scoreList);
 
   return (
     <PageContainer>
-      <H1>Results</H1>
-      <P>
+      <H1>Scores</H1>
+        <P>Receive a gem for every correct answer!</P>
+        {scoreList.length === 0 && <Center style={{margin: '30px'}}><img src={'./images/gramphone.png'}/></Center>}
+      <Center><P>
         {Object.keys(scoreList).length !== 0
-          ? `Last result: ${scoreList[0].scoreInPc} %`
-          : "No result yet..."}
-      </P>
+          ? `Last game: ${scoreList[0].scoreInPc} %`
+          : "No scores yet... start playing!"}
+      </P></Center>
 
-      <Center>
+
+
+        {scoreList.length > 0 && <Center>
         <Table>
           <tbody>
             <tr>
               <th>Game</th>
-              <th>Diamonds Collected</th>
+              <th>Score</th>
             </tr>
             {scoreList &&
               scoreList.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.gameId}</td>
-                  <td>{item.scoreInPc} 💎</td>
+                  <td>{Games.find(game => game.id === item.gameId).name}</td>
+                  <td>{item.scoreInPc}%</td>
                 </tr>
               ))}
           </tbody>
         </Table>
-      </Center>
+      </Center>}
 
-      <Center style={{ marginTop: "80px" }}>
+      <Center style={{ marginTop: "20px" }}>
         <StyledLink to="/">
           <Button> Home </Button>
         </StyledLink>

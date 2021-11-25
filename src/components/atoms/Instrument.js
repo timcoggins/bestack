@@ -12,9 +12,15 @@ const Instrument = styled.div`
     }
     ${props => props.correct && css`
       background: ${props => props.theme.colors.CorrectColor};
+      &:hover {
+        background: ${props => props.theme.colors.CorrectColor};
+      }
     `}
     ${props => props.incorrect && css`
       background: ${props => props.theme.colors.IncorrectColor};
+      &:hover {
+        background: ${props => props.theme.colors.IncorrectColor};
+      }
     `}
 `;
 
