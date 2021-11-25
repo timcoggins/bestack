@@ -18,7 +18,7 @@ import Controls from "../components/atoms/Controls";
  */
 const NoteRecognition = () => {
   // Consume context
-  const { noteSettings, scoreList, setScoreList } =
+  const { noteSettings, scoreList, setScoreList, gem, setGem } =
     useContext(ScoreListContext);
 
   console.log(noteSettings);
@@ -39,6 +39,7 @@ const NoteRecognition = () => {
     if (input === note) {
       setMsg("Correct!");
       setScore(score + 1);
+      setGem(gem + 1);
     } else {
       setMsg("Incorrect");
     }

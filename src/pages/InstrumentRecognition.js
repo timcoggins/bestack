@@ -9,7 +9,6 @@ import ScoreListContext from "../contexts/ScoreContext";
 
 import StyledLink from "../components/atoms/StyledLink";
 import PageContainer from "../components/atoms/PageContainer";
-import H1 from "../components/atoms/H1";
 import P from "../components/atoms/P";
 import Instrument from "../components/atoms/Instrument";
 import InstrumentContainer from "../components/atoms/InstrumentContainer";
@@ -26,7 +25,7 @@ import Controls from "../components/atoms/Controls";
 const InstrumentRecognition = () => {
 
   // Consume the context
-  const { instrumentSettings, scoreList, setScoreList } =
+  const { instrumentSettings, scoreList, setScoreList, gem, setGem } =
     useContext(ScoreListContext);
   const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
@@ -63,6 +62,7 @@ const InstrumentRecognition = () => {
     if (answer === question.name) {
       setMsg("Correct");
       setScore(score + 1);
+      setGem(gem + 1);
     } else {
       setMsg("Incorrect");
     }
