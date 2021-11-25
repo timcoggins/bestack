@@ -4,18 +4,32 @@ import { createContext, useState } from "react";
 const ScoreListContext = createContext()
 
 const ScoreListContextProvider = ({children}) => {
-    const [scoreList, setScoreList] = useState([{
-        gameId: '1',
+    const [scoreList, setScoreList] = useState([
+        /* {
+            gameId: '1',
+            scoreInPc: 0        
+        } */
+    ]);
+    
+    const [ noteSettings, setNoteSettings] = useState({
         selectedInstrument: '1',
-        difficultyLevel: 'easy',
-        questNb: 10,
-        ScoreInPc: 0
-    }]);
+        difficulty: 'easy',
+        numberOfQuestions: 5
+    })
+
+    const [ instrumentSettings, setInstrumentSettings] = useState({
+        difficulty: 'easy',
+        numberOfQuestions: 5
+    })
 
     return (
         <ScoreListContext.Provider value={{
             scoreList: scoreList,
-            setScoreList: setScoreList
+            setScoreList: setScoreList,
+            noteSettings: noteSettings,
+            setNoteSettings: setNoteSettings,
+            instrumentSettings: instrumentSettings,
+            setInstrumentSettings: setInstrumentSettings
         }}>
             {children}
         </ScoreListContext.Provider>

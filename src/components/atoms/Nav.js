@@ -5,7 +5,7 @@ const Nav = styled.nav`
     place-content: space-between;
     align-items: center;
     background:  ${props => props.theme.colors.PrimaryColor};
-    padding: 15px;
+    padding: 0 20px;
     color: white;
 `;
 
