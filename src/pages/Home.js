@@ -4,8 +4,8 @@
 
 // Imports
 import PageContainer from "../components/atoms/PageContainer";
-import H1 from "../components/atoms/H1"
-import P from "../components/atoms/P"
+/* import H1 from "../components/atoms/H1"; */
+import P from "../components/atoms/P";
 /* import { Link } from 'react-router-dom'; */
 import StyledLink from '../components/atoms/StyledLink';
 import GameSelector from "../components/molecules/GameSelector";
