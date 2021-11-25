@@ -12,6 +12,7 @@ import PageContainer from "../components/atoms/PageContainer"
 import H1 from "../components/atoms/H1"
 import P from "../components/atoms/P"
 import Button from "../components/atoms/Button";
+import Table from '../components/atoms/Table';
 
 /**
  * Results
@@ -28,21 +29,23 @@ const Results = () => {
         <PageContainer>
             <H1>Results</H1>
             <P>{Object.keys(scoreList).length !== 0
-                ? scoreList.ScoreInPc
+                ? `Last result: ${scoreList[0].scoreInPc} %`
                 : "No result yet..."
                 }
             </P>
 
-            <table>
+            <Table>
                 <tbody>
-                    {scoreList && scoreList.map(item => 
                     <tr>
-                        <td>{item.gameId}</td>
-                        <td>{item.ScoreInPc} / Question Number</td>
+                        <th>Game</th><th>Score in %</th>
+                    </tr>
+                    {scoreList && scoreList.map((item, index) => 
+                    <tr key={index}>
+                        <td>{item.gameId}</td><td>{item.scoreInPc}%</td>
                     </tr>
                     )}
                 </tbody>
-            </table>
+            </Table>
 
             <StyledLink to='/noterecognitionsetup'><Button> Start Again </Button></StyledLink>
             <StyledLink to='/home'><Button> Home </Button></StyledLink>
