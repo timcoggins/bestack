@@ -29,7 +29,7 @@ const NoteRecognitionSetup = () => {
         gameId: '1',
         selectedInstrument: '1',
         difficultyLevel: 'easy',
-        questNb: 10,
+        questNb: 5,
         ScoreInPc: 0
     });
 
@@ -44,9 +44,9 @@ const NoteRecognitionSetup = () => {
     }
 
     // For debugigns
-    useEffect(() => {
+/*     useEffect(() => {
         console.log(tmpScore);
-    }, [tmpScore]);
+    }, [tmpScore]); */
 
     // JSX
     return (
@@ -71,6 +71,8 @@ const NoteRecognitionSetup = () => {
             <P>Decide how many questions to play</P>
             <Input
                 type="number"
+                min="1"
+                max="10"
                 onChange={(e) => setTmpScore({...tmpScore, questNb: parseInt(e.target.value, 10) })}
                 value={tmpScore.questNb}
             />

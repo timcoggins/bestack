@@ -1,7 +1,7 @@
 /**
  * NoteRecognition.js
  */
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import generateRandomNote from '../utils/generateRandomNote';
 import ScoreListContext from "../contexts/ScoreContext"
 
@@ -19,11 +19,13 @@ const NoteRecognition = () => {
 
     // Consume context
     const { scoreList, setScoreList } = useContext(ScoreListContext);
-
+    const [ currentScore, setCurrentScore ] = useState(scoreList.slice(-1));
+    console.log(currentScore);
     // State variables
     const [ note, setNote ] = useState(`${generateRandomNote('easy', 'piano')}`);
     const [ msg, setMsg ] = useState('');
     const [ score, setScore ] = useState(0);
+    const [nextBtnDisabled, setNextBtnDisabled] = useState(true)
     const [ questCount, setQuestCount ] = useState(0);
 
     /**
@@ -37,16 +39,15 @@ const NoteRecognition = () => {
         } else {
             setMsg('Incorrect')
         }
-        setQuestCount(questCount + 1)
-    }
-
-    useEffect(() => {
-        if(questCount >= scoreList.questNb) {
-/*             const newScoreList = scoreList.slice();
-            newScoreList.push(tmpScore);
-            setScoreList(newScoreList); */
+        setQuestCount(questCount + 1);
+        setNextBtnDisabled(false);
+        if(questCount >= currentScore.questNb) {
+            setCurrentScore(score / currentScore.questNb * 100);
+            const newScoreList = scoreList.slice();
+            newScoreList.push(currentScore);
+            setScoreList(newScoreList);
         }
-    }, [questCount])
+    }
 
     // JSX
     return (
@@ -66,10 +67,15 @@ const NoteRecognition = () => {
 
             {msg ? <p>{msg}</p> : <p>Choose a note</p>}
 
-            <Button onClick={() => {
+            <Button
+                disabled={nextBtnDisabled}
+                onClick={() => {
                 setNote(`${generateRandomNote('easy', 'piano')}`);
                 setMsg('')
-            }}>Next Note</Button>
+            }}
+            >
+                Next Note
+            </Button>
             <P>Score: {score}</P>
         </PageContainer>
     )

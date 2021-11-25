@@ -8,7 +8,8 @@
  // Styles
  const theme = {
      colors: {
-        PrimaryColor: 'cornflowerblue'
+        PrimaryColor: 'cornflowerblue',
+        DisabledColor: 'grey'
     },
  };
  
