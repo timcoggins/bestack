@@ -25,8 +25,10 @@ const Container = styled.div`
     }
 
     ${props => props.disabled && css`
-        background: gray;
-
+        background: #D3D3D3;
+        &:hover {
+            background: #D3D3D3;
+        }
     `}
     
     margin: 30px 20px;

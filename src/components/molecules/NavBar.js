@@ -8,12 +8,14 @@ const NavBar = () => {
 
     return (
         <Nav>
-            
-            <Link to='/'>
-                <Logo src='./images/BEStackLogo.png'/> 
-                {/* <P>Music Trainer</P> */}
-            </Link>
-            <NavBarTitle>Train your Theory</NavBarTitle>
+            <div>
+                <Link to='/' style={{textDecoration: 'none'}}>
+                    {/* <Logo src='./images/BEStackLogo.png'/>   */}
+                    <NavBarTitle>Train your Theory</NavBarTitle>
+                </Link>
+                
+            </div>
+            <P>15 💎</P>
         </Nav>
     )
 }
@@ -22,6 +24,6 @@ export default NavBar
 
 const NavBarTitle = styled.h2`
     color: white;
-    margin: 0 0 0 15px;
+
 
 `
