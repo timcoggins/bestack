@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
     display: block;
@@ -10,7 +10,11 @@ const Button = styled.button`
     margin-top: 1rem;
     &:hover {
         background: grey;
-    } 
+    }
+
+    ${props => props.disabled && css`
+    background: ${props => props.theme.colors.DisabledColor};
+`}
 
 `;
 
