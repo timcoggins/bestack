@@ -1,8 +1,9 @@
 /**
  * NoteRecognition.js
  */
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import generateRandomNote from '../utils/generateRandomNote';
+import ScoreListContext from "../contexts/ScoreContext"
 
 import PageContainer from "../components/atoms/PageContainer"
 import H1 from "../components/atoms/H1"
@@ -16,10 +17,14 @@ import SheetMusic from 'react-sheet-music';
  */
 const NoteRecognition = () => {
 
+    // Consume context
+    const { scoreList, setScoreList } = useContext(ScoreListContext);
+
     // State variables
-    const [ note, setNote ] = useState(`${generateRandomNote('easy', 'piano')}`)
-    const [ msg, setMsg ] = useState('')
-    const [ score, setScore ] = useState(0)
+    const [ note, setNote ] = useState(`${generateRandomNote('easy', 'piano')}`);
+    const [ msg, setMsg ] = useState('');
+    const [ score, setScore ] = useState(0);
+    const [ questCount, setQuestCount ] = useState(0);
 
     /**
      * Check user choice
@@ -32,7 +37,16 @@ const NoteRecognition = () => {
         } else {
             setMsg('Incorrect')
         }
+        setQuestCount(questCount + 1)
     }
+
+    useEffect(() => {
+        if(questCount >= scoreList.questNb) {
+/*             const newScoreList = scoreList.slice();
+            newScoreList.push(tmpScore);
+            setScoreList(newScoreList); */
+        }
+    }, [questCount])
 
     // JSX
     return (
