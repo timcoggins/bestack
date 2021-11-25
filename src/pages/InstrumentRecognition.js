@@ -26,6 +26,8 @@ const InstrumentRecognition = () => {
     // Consume the context
     const { instrumentSettings, scoreList, setScoreList } = useContext(ScoreListContext);
 
+    console.log(instrumentSettings);
+
     const FilteredInstruments = InstrumentRecognitionList.filter(item => {
         if(instrumentSettings.difficulty === 'easy' && item.difficulty > 1 ) return false
         if(instrumentSettings.difficulty === 'medium' && item.difficulty > 2 ) return false
@@ -95,8 +97,8 @@ const InstrumentRecognition = () => {
             </Center>
 
             <InstrumentContainer>
-                {FilteredInstruments.map(item => 
-                    <Instrument onClick={() => checkAnswer(item.name)}>
+                {FilteredInstruments.map((item, index) => 
+                    <Instrument key={index} onClick={() => checkAnswer(item.name)}>
                         <InstrumentImg src={`${item.icon}`} />
                         <P>{item.name}</P>
                     </Instrument>

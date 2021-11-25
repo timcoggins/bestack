@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import ScoreListContext from '../contexts/ScoreContext'
 
+import ChooseDifficulty from '../components/molecules/ChooseDifficulty';
 import ChooseNbQuest from '../components/molecules/ChooseNbQuest';
 
 import StyledLink from '../components/atoms/StyledLink';
@@ -41,17 +42,8 @@ const InstrumentRecognitionSetup = () => {
     return (
         <PageContainer>
             <H1>What's that instrument?</H1>
-            <Controls>
-                <P>Choose an difficulty</P>
-                <Select value={instrumentSettings.difficulty} onChange={(e) => handleChange(e)}>
-                    <option value='easy'>Easy</option>
-                    <option value='medium'>Medium</option>
-                    <option value='hard'>Hard</option>
-                </Select>
-            </Controls>
-            <Controls>
-                <ChooseNbQuest />
-            </Controls>
+                <ChooseDifficulty  options={instrumentSettings} setOptions={setInstrumentSettings} />
+                <ChooseNbQuest options={instrumentSettings} setOptions={setInstrumentSettings} />
             <StyledLink to='/instrumentrecognition'><Button>Start!</Button></StyledLink>
         </PageContainer>
     )
@@ -59,8 +51,3 @@ const InstrumentRecognitionSetup = () => {
 
 export default InstrumentRecognitionSetup
 
-const Controls = styled.div`
-    display: flex;
-    place-content: space-between;
-    margin: 30px 0;
-`;

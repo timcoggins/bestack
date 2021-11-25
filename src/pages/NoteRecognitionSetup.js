@@ -15,7 +15,9 @@ import H1 from "../components/atoms/H1";
 import P from "../components/atoms/P";
 import Select from '../components/atoms/Select';
 import Button from "../components/atoms/Button";
+
 import Center from '../components/atoms/Center'
+import ChooseDifficulty from '../components/molecules/ChooseDifficulty';
 
 /**
  * NoteRecognitionSetup
@@ -44,17 +46,11 @@ const NoteRecognitionSetup = () => {
                 }
             </Select>
 
-            <P>Choose an difficulty</P>
-            <Select onChange={(e) => setNoteSettings({...noteSettings, difficulty: e.target.value })} >
-                <option value={'easy'} >Easy</option>
-                <option value={'medium'} >Medium</option>
-                <option value={'hard'} >Hard</option>
-            </Select>
+            <ChooseDifficulty  options={noteSettings} setOptions={setNoteSettings} />
 
-            <ChooseNbQuest />
-
-                <StyledLink to='/noterecognition'><Button style={{display: 'inline'}}>Start Game</Button></StyledLink>
-
+            <ChooseNbQuest options={noteSettings} setOptions={setNoteSettings} />
+     
+            <StyledLink to='/noterecognition'><Button>Start Game</Button></StyledLink>
         </PageContainer>
     )
 }

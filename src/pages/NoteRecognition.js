@@ -21,6 +21,8 @@ const NoteRecognition = () => {
     // Consume context
     const { noteSettings, setNoteSettings, scoreList, setScoreList } = useContext(ScoreListContext);
 
+    console.log(noteSettings);
+
     // State variables
     const [ note, setNote ] = useState(`${generateRandomNote('easy', 'piano')}`);
     const [ msg, setMsg ] = useState('');
