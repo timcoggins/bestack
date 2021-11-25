@@ -46,9 +46,10 @@ const InstrumentRecognition = () => {
   const [question, setQuestion] = useState(
     FilteredInstruments[generateRandomInstrument(FilteredInstruments)]
   );
-  const [msg, setMsg] = useState("");
+  // const [msg, setMsg] = useState("");
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState(0);
+  const [ userAnswer, setUserAnswer ] = useState('')
 
   /**
    * Checks the users answer when they click on a button
@@ -56,31 +57,34 @@ const InstrumentRecognition = () => {
    */
   const checkAnswer = (answer) => {
     // If the user has already chosen an answer dont listen to another
-    if (msg !== "") return;
-
+    if (userAnswer !== "") return;
+      setUserAnswer(answer)
     // Check the answer
     if (answer === question.name) {
-      setMsg("Correct");
+      // setMsg("Correct");
       setScore(score + 1);
       setGem(gem + 1);
     } else {
-      setMsg("Incorrect");
+      // setMsg("Incorrect");
     }
     setQuestions(questions + 1);
     setNextBtnDisabled(false);
   };
 
+  console.log(userAnswer)
   /**
    * Goes to the next question or the results page
    */
   const nextQuestion = () => {
+    if(userAnswer === '') return
+    setUserAnswer('')
     if (questions !== instrumentSettings.numberOfQuestions) {
-      setMsg("");
+      // setMsg("");
       setQuestion(
         FilteredInstruments[generateRandomInstrument(FilteredInstruments)]
       );
     } else {
-      setMsg("Finished!");
+      // setMsg("Finished!");
       const newScore = {
         gameId: "1",
         difficultyLevel: instrumentSettings.difficulty,
@@ -93,6 +97,13 @@ const InstrumentRecognition = () => {
     }
   };
 
+  /**
+   * Check if an answer was incorrect and makes it red in the map or something idk its really late, too tired... but it works i guess
+   * @param name
+   */
+  const checkIncorrect = (name) => (name === userAnswer && userAnswer !== question.name)
+
+
   // JSX
   return (
     <PageContainer>
@@ -102,7 +113,7 @@ const InstrumentRecognition = () => {
       {/*<P>Questions: {questions} / {instrumentSettings.numberOfQuestions} </P>*/}
 
       <Center>
-        {!msg && (
+        {!userAnswer && (
             <div style={{margin: '30px 0'}}>
           <audio controls >
             <source src={question.audio} type="audio/wav" />
@@ -113,14 +124,14 @@ const InstrumentRecognition = () => {
 
       <InstrumentContainer>
         {FilteredInstruments.map((item, index) => (
-          <Instrument key={index} onClick={() => checkAnswer(item.name)}>
+          <Instrument key={index} onClick={() => checkAnswer(item.name)} correct={userAnswer === item.name && userAnswer === question.name} incorrect={checkIncorrect(item.name)}>
             <InstrumentImg src={`${item.icon}`} />
             <P>{item.name}</P>
           </Instrument>
         ))}
       </InstrumentContainer>
 
-      <P>{msg}</P>
+      {/*<P>{msg}</P>*/}
 
       <Controls middle>
         {!resultBtnDisabled ? (

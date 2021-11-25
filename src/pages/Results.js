@@ -7,6 +7,8 @@
 import { useContext } from "react";
 import ScoreListContext from "../contexts/ScoreContext";
 
+import Games from "../assets/GameList";
+
 import StyledLink from "../components/atoms/StyledLink";
 import PageContainer from "../components/atoms/PageContainer";
 import H1 from "../components/atoms/H1";
@@ -44,7 +46,7 @@ const Results = () => {
             {scoreList &&
               scoreList.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.gameId}</td>
+                  <td>{Games.find(game => game.id === item.gameId).name}</td>
                   <td>{item.scoreInPc} 💎</td>
                 </tr>
               ))}
