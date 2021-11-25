@@ -9,8 +9,9 @@ const Button = styled.button`
     border: 0;
     margin-top: 1rem;
     font-size: 1.1em;
+    transition: .5s ease;
     &:hover {
-        background: grey;
+        background: ${props => props.theme.colors.HoverColor};
     }
 
     ${props => props.disabled && css`

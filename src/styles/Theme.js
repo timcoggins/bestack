@@ -8,7 +8,8 @@
  // Styles
  const theme = {
      colors: {
-        PrimaryColor: 'cornflowerblue',
+        PrimaryColor: '#6495EC',
+        HoverColor: '#9abaf5',
         DisabledColor: 'grey'
     },
  };
