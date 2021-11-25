@@ -31,11 +31,13 @@ const Results = () => {
     <PageContainer>
       <H1>Scores</H1>
         <P>Receive a gem for every correct answer!</P>
-      <P>
+        {scoreList.length === 0 && <Center style={{margin: '30px'}}><img src={'./images/gramphone.png'}/></Center>}
+      <Center><P>
         {Object.keys(scoreList).length !== 0
           ? `Last game: ${scoreList[0].scoreInPc} %`
           : "No scores yet... start playing!"}
-      </P>
+      </P></Center>
+
 
 
         {scoreList.length > 0 && <Center>
@@ -56,7 +58,7 @@ const Results = () => {
         </Table>
       </Center>}
 
-      <Center style={{ marginTop: "80px" }}>
+      <Center style={{ marginTop: "20px" }}>
         <StyledLink to="/">
           <Button> Home </Button>
         </StyledLink>
