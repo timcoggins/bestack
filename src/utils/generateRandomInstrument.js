@@ -9,7 +9,7 @@ function getRandomInt(min, max) {
 const generateRandomInstrument = (difficulty) => {
     
     
-    return InstrumentRecognitionList[getRandomInt(0, InstrumentRecognitionList)]
+    return getRandomInt(0, InstrumentRecognitionList.length);
 }
 
 export default generateRandomInstrument
