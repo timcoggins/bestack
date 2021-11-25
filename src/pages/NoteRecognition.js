@@ -12,6 +12,8 @@ import Button from "../components/atoms/Button";
 import SheetMusic from "react-sheet-music";
 import Controls from "../components/atoms/Controls";
 
+const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+
 /**
  * NoteRecognition
  * @returns {JSX.Element}
@@ -30,6 +32,7 @@ const NoteRecognition = () => {
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
   const [questCount, setQuestCount] = useState(1);
+  const [ userAnswer, setUserAnswer ] = useState('')
 
   /**
    * Check user choice
@@ -75,6 +78,12 @@ const NoteRecognition = () => {
         else return null // for the wrong answers that were not selected
     } */
 
+  /**
+   * Check if an answer was incorrect and makes it red in the map or something idk its really late, too tired... but it works i guess
+   * @param name
+   */
+  // const checkIncorrect = (name) => (name === userAnswer && userAnswer !== question.name)
+
   // JSX
   return (
     <PageContainer>
@@ -89,13 +98,17 @@ const NoteRecognition = () => {
       </div>
 
       <Controls grid style={{ marginTop: "0" }}>
-        <Button onClick={() => checkNote("C")}>C</Button>
-        <Button onClick={() => checkNote("D")}>D</Button>
-        <Button onClick={() => checkNote("E")}>E</Button>
-        <Button onClick={() => checkNote("F")}>F</Button>
-        <Button onClick={() => checkNote("G")}>G</Button>
-        <Button onClick={() => checkNote("A")}>A</Button>
-        <Button onClick={() => checkNote("B")}>B</Button>
+        { notes.map(item =>
+            <Button onClick={() => checkNote(item)}>{item}</Button>
+        )}
+        {/*<Button onClick={() => checkNote("C")}>C</Button>*/}
+        {/*<Button onClick={() => checkNote("D")}>D</Button>*/}
+        {/*<Button onClick={() => checkNote("E")}>E</Button>*/}
+        {/*<Button onClick={() => checkNote("F")}>F</Button>*/}
+        {/*<Button onClick={() => checkNote("G")}>G</Button>*/}
+        {/*<Button onClick={() => checkNote("A")}>A</Button>*/}
+        {/*<Button onClick={() => checkNote("B")}>B</Button>
+*/}
       </Controls>
 
       {msg ? <p>{msg}</p> : ""}
