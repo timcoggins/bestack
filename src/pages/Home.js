@@ -23,13 +23,13 @@ const Home = (props) => {
             {/* <H1>Train your Theory</H1> */}
 
             <P>Choose a game below to get started!</P>
-            <StyledLink to='/noterecognitionsetup' ><GameSelector title={'What\'s that note?'} image={'./images/sound-button.png'}/></StyledLink>
-            <StyledLink to='/instrumentrecognitionsetup' ><GameSelector title={'What\'s that instrument?'} image={'./images/music-instrument.png'}/></StyledLink>
-            <GameSelector title={'Intervals (Coming Soon)'} image={'./images/audio-waves.png'} disabled={true}/>
-
-            <Center>
-                <StyledLink to='/results' ><Button>Results</Button></StyledLink>
-            </Center>
+            <StyledLink to='/noterecognitionsetup' ><GameSelector title={'What\'s that note?'} image={'./images/music-note.png'}/></StyledLink>
+            <StyledLink to='/instrumentrecognitionsetup' ><GameSelector title={'What\'s that instrument?'} image={'./images/jingle.png'}/></StyledLink>
+            <GameSelector title={'Intervals (Coming Soon)'} image={'./images/triangle.png'} disabled={true}/>
+            <StyledLink to='/results' ><GameSelector title={'My Scores'} image={'./images/metronome.png'}/></StyledLink>
+            {/*<Center>*/}
+            {/*    <StyledLink to='/results' ><Button>Results</Button></StyledLink>*/}
+            {/*</Center>*/}
 
         </PageContainer>
     )

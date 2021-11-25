@@ -7,7 +7,7 @@ const GameSelector = (props) => {
         <Container disabled={props.disabled}>
 
             <P>{props.title}</P>
-            <img src={props.image} alt='start the game' width='40px'/>
+            <img src={props.image} alt='start the game' width='40px' height='40px'/>
             
         </Container>
     )
@@ -21,6 +21,7 @@ const Container = styled.div`
     color: black;
     display: flex;
     place-content: space-between;
+    align-items: center;
     padding: 15px;
     &:hover {
         color: ${props => props.theme.colors.FontHeadingColor};
