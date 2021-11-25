@@ -46,6 +46,7 @@ const NoteRecognition = () => {
             const newScoreList = scoreList.slice();
             newScoreList.push(currentScore);
             setScoreList(newScoreList);
+            window.location = '/results'
         }
     }
 
