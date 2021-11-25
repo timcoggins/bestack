@@ -16,5 +16,5 @@ const FooterContainer = styled.footer`
     background:  ${props => props.theme.colors.PrimaryColor};
     text-align: center;
     color: white;
-    padding: 15px;
+    padding: 1px;
 `

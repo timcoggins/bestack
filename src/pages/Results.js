@@ -28,21 +28,22 @@ const Results = () => {
         <PageContainer>
             <H1>Results</H1>
             <P>100%</P>
-            <P>{'comment based on results'}</P>
+            {/* <P>
+                if ()
+                {}
+            
+            </P> */}
 
             <table>
-            <tr>
-                <th>Name</th>
-                <th>Score</th>
-            </tr>
-            <tr>
-                <td>name</td>
-                <td>score</td>
-            </tr>
-            <tr>
-                <td>name</td>
-                <td>score</td>
-            </tr>
+
+                <tbody>
+                    {scoreList && scoreList.map(item => 
+                    <tr>
+                        <td>{item.gameId}</td>
+                        <td>{item.ScoreInPc} / Question Number</td>
+                    </tr>
+                    )}
+                </tbody>
             </table>
 
             <StyledLink to='/noterecognitionsetup'><Button> Start Again </Button></StyledLink>
