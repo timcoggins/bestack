@@ -29,7 +29,7 @@ const InstrumentRecognition = () => {
     const FilteredInstruments = InstrumentRecognitionList.filter(item => {
         if(instrumentSettings.difficulty === 'easy' && item.difficulty > 1 ) return false
         if(instrumentSettings.difficulty === 'medium' && item.difficulty > 2 ) return false
-        if(instrumentSettings.difficulty === 'difficult' && item.difficulty > 3 ) return false
+        if(instrumentSettings.difficulty === 'hard' && item.difficulty > 3 ) return false
         return true;
     })
 
@@ -68,15 +68,15 @@ const InstrumentRecognition = () => {
             setQuestion(FilteredInstruments[generateRandomInstrument(FilteredInstruments)])
         } else {
             setMsg('Finished!')
-            setScoreList([{
+            setScoreList([...scoreList, {
                 gameId: '2',
                 difficultyLevel: instrumentSettings.difficulty,
                 questNb: questions,
                 ScoreInPc: score
             }])
-            window.location = '/results'
+            
+            //setInterval(() => window.location = '/results', 2000);
         }
-        
     }
 
 
