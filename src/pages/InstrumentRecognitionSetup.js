@@ -15,10 +15,10 @@ import StyledLink from '../components/atoms/StyledLink';
 import PageContainer from "../components/atoms/PageContainer"
 import H1 from "../components/atoms/H1"
 import P from "../components/atoms/P"
-import Select from '../components/atoms/Select'
 import Button from "../components/atoms/Button"
 import Input from "../components/atoms/Input"
 import styled from 'styled-components'
+
 
 /**
  * InstrumentRecognitionSetup
@@ -27,17 +27,18 @@ import styled from 'styled-components'
 const InstrumentRecognitionSetup = () => {
 
     const { instrumentSettings, setInstrumentSettings } = useContext(ScoreListContext);
-    console.log(instrumentSettings.numberOfQuestions)
+    console.log(instrumentSettings.numberOfQuestions);
+
     /**
      * HandleChange
      * @param {*} e 
      */
-    const handleChange = (e) => setInstrumentSettings({...instrumentSettings, difficulty: e.target.value});
+    //const handleChange = (e) => setInstrumentSettings({...instrumentSettings, difficulty: e.target.value});
 
     /**
      * Handle when the user changes the number of questions
      */
-    const handleQuestionsChange = (e) => setInstrumentSettings({...instrumentSettings, numberOfQuestions: parseInt(e.target.value)});
+    //const handleQuestionsChange = (e) => setInstrumentSettings({...instrumentSettings, numberOfQuestions: parseInt(e.target.value)});
 
     return (
         <PageContainer>

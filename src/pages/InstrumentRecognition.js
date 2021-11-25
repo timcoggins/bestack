@@ -7,6 +7,7 @@ import InstrumentRecognitionList from "../assets/instrumentRecognitionList"
 import generateRandomInstrument from '../utils/generateRandomInstrument'
 import ScoreListContext from '../contexts/ScoreContext'
 
+import StyledLink from '../components/atoms/StyledLink';
 import PageContainer from "../components/atoms/PageContainer"
 import H1 from "../components/atoms/H1"
 import P from "../components/atoms/P"
@@ -25,6 +26,7 @@ const InstrumentRecognition = () => {
 
     // Consume the context
     const { instrumentSettings, scoreList, setScoreList } = useContext(ScoreListContext);
+    const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
 
     console.log(instrumentSettings);
 
@@ -76,7 +78,7 @@ const InstrumentRecognition = () => {
                 questNb: questions,
                 ScoreInPc: score
             }])
-            
+            setResultBtnDisabled(false);
             //setInterval(() => window.location = '/results', 2000);
         }
     }
@@ -108,6 +110,8 @@ const InstrumentRecognition = () => {
             <P>{msg}</P>
 
             <Button onClick={() => nextQuestion()}>Next</Button>
+
+            <StyledLink to='/results' ><Button disabled={resultBtnDisabled}>Results</Button></StyledLink>
 
         </PageContainer>
     )
