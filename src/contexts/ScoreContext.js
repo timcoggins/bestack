@@ -15,12 +15,14 @@ const ScoreListContextProvider = ({children}) => {
         selectedInstrument: '1',
         difficulty: 'easy',
         numberOfQuestions: 5
-    })
+    });
 
     const [ instrumentSettings, setInstrumentSettings] = useState({
         difficulty: 'easy',
         numberOfQuestions: 5
-    })
+    });
+
+    const [ gem, setGem ] = useState(0);
 
     return (
         <ScoreListContext.Provider value={{
@@ -29,7 +31,9 @@ const ScoreListContextProvider = ({children}) => {
             noteSettings: noteSettings,
             setNoteSettings: setNoteSettings,
             instrumentSettings: instrumentSettings,
-            setInstrumentSettings: setInstrumentSettings
+            setInstrumentSettings: setInstrumentSettings,
+            gem: gem,
+            setGem: setGem
         }}>
             {children}
         </ScoreListContext.Provider>

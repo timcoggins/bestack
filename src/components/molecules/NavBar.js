@@ -1,10 +1,15 @@
-import styled from 'styled-components'
-import P from '../atoms/P'
-import Nav from '../atoms/Nav'
-import Logo from '../atoms/Logo'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import Nav from '../atoms/Nav';
+import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import ScoreListContext from "../../contexts/ScoreContext";
 
 const NavBar = () => {
+
+  // Consume the context
+  const { gem } =
+    useContext(ScoreListContext);
+
 
     return (
         <Nav>
@@ -15,7 +20,7 @@ const NavBar = () => {
                 </Link>
                 
             </div>
-            <Bubble>15 💎</Bubble>
+            <Bubble>{gem} 💎</Bubble>
         </Nav>
     )
 }
@@ -23,7 +28,7 @@ const NavBar = () => {
 export default NavBar
 
 const NavBarTitle = styled.h2`
-    color: white;
+    color: ${props => props.theme.colors.FontHeadingColor};
     transition: .5s ease;
     &:hover {
         color: ${props => props.theme.colors.HoverColor};

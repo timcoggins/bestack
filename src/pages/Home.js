@@ -4,8 +4,8 @@
 
 // Imports
 import PageContainer from "../components/atoms/PageContainer";
-import H1 from "../components/atoms/H1"
-import P from "../components/atoms/P"
+/* import H1 from "../components/atoms/H1"; */
+import P from "../components/atoms/P";
 /* import { Link } from 'react-router-dom'; */
 import StyledLink from '../components/atoms/StyledLink';
 import GameSelector from "../components/molecules/GameSelector";
@@ -27,8 +27,9 @@ const Home = (props) => {
             <StyledLink to='/instrumentrecognitionsetup' ><GameSelector title={'What\'s that instrument?'} image={'./images/music-instrument.png'}/></StyledLink>
             <GameSelector title={'Intervals (Coming Soon)'} image={'./images/audio-waves.png'} disabled={true}/>
 
-            <P>See your results</P>
-            <StyledLink to='/results' ><Button>Results</Button></StyledLink>
+            <Center>
+                <StyledLink to='/results' ><Button>Results</Button></StyledLink>
+            </Center>
 
         </PageContainer>
     )

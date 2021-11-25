@@ -2,22 +2,17 @@
  * InstrumentRecognitionSetup
  * Game options
  */
-
-import { Link } from 'react-router-dom'
-
-import { useContext } from 'react'
-import ScoreListContext from '../contexts/ScoreContext'
+import { useContext } from 'react';
+import ScoreListContext from '../contexts/ScoreContext';
 
 import ChooseDifficulty from '../components/molecules/ChooseDifficulty';
 import ChooseNbQuest from '../components/molecules/ChooseNbQuest';
 
 import StyledLink from '../components/atoms/StyledLink';
-import PageContainer from "../components/atoms/PageContainer"
-import H1 from "../components/atoms/H1"
-import P from "../components/atoms/P"
-import Button from "../components/atoms/Button"
-import Input from "../components/atoms/Input"
-import styled from 'styled-components'
+import PageContainer from "../components/atoms/PageContainer";
+import H1 from "../components/atoms/H1";
+import Button from "../components/atoms/Button";
+
 import Center from "../components/atoms/Center";
 
 

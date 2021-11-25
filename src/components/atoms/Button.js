@@ -6,7 +6,7 @@ const Button = styled.button`
     height: 60px; 
     width: 120px;
     background: ${props => props.theme.colors.PrimaryColor};
-    color: white;
+    color: ${props => props.theme.colors.MainBackgroundColor};
     border: 0;
     margin-top: 1rem;
     font-size: 1.2em;
@@ -18,6 +18,12 @@ const Button = styled.button`
 
     ${props => props.disabled && css`
       background: ${props => props.theme.colors.DisabledColor};
+    `}
+    ${props => props.correct && css`
+      background: ${props => props.theme.colors.CorrectColor};
+    `}
+    ${props => props.incorrect && css`
+      background: ${props => props.theme.colors.IncorrectColor};
     `}
 
 `;
