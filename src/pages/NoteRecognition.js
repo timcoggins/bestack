@@ -56,10 +56,6 @@ const NoteRecognition = () => {
         }
     }
 
-    useEffect (() => {
-        console.log(scoreList);
-    }, [scoreList]);
-
     // JSX
     return (
         <PageContainer>

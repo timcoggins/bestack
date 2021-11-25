@@ -27,15 +27,13 @@ const Results = () => {
     return (
         <PageContainer>
             <H1>Results</H1>
-            <P>100%</P>
-            {/* <P>
-                if ()
-                {}
-            
-            </P> */}
+            <P>{Object.keys(scoreList).length !== 0
+                ? scoreList.ScoreInPc
+                : "No result yet..."
+                }
+            </P>
 
             <table>
-
                 <tbody>
                     {scoreList && scoreList.map(item => 
                     <tr>
