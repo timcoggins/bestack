@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 const Instrument = styled.div`
     background:  ${props => props.theme.colors.PrimaryColor};
     border-radius: 5px;
-    color: white;
+    color: ${props => props.theme.colors.FontHeadingColor};
     padding: 20px;
     text-align: center;
     transition: .5s ease;
@@ -11,10 +11,10 @@ const Instrument = styled.div`
         background: ${props => props.theme.colors.HoverColor};
     }
     ${props => props.correct && css`
-      background: #6ca240;
+      background: ${props => props.theme.colors.CorrectColor};
     `}
     ${props => props.incorrect && css`
-      background: #da6565;
+      background: ${props => props.theme.colors.IncorrectColor};
     `}
 `;
 

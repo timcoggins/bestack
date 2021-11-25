@@ -6,7 +6,7 @@ const Nav = styled.nav`
     align-items: center;
     background:  ${props => props.theme.colors.PrimaryColor};
     padding: 0 20px;
-    color: white;
+    color: ${props => props.theme.colors.FontHeadingColor};
 `;
 
 export default Nav

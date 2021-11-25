@@ -23,7 +23,7 @@ const Container = styled.div`
     place-content: space-between;
     padding: 15px;
     &:hover {
-        color: white;
+        color: ${props => props.theme.colors.FontHeadingColor};
         background: ${props => props.theme.colors.HoverColor};
     }
 
