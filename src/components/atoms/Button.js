@@ -7,7 +7,7 @@ const Button = styled.button`
     background: ${props => props.theme.colors.PrimaryColor};
     color: white;
     border: 0;
-
+    margin-top: 1rem;
     &:hover {
         background: grey;
     } 
