@@ -11,9 +11,8 @@ import Button from "../components/atoms/Button";
 const NoteRecognitionSetup = () => {
 
     const { scoreList, setScoreList } = useContext(ScoreListContext);
-    
+
     const [tmpScore, setTmpScore] = useState({
-        gameNb: 1,//Math.max.apply(Math, scoreList.map(function(o) { return o.gameNb; }) + 1),
         gameId: '1',
         selectedInstrument: '1',
         difficultyLevel: 'easy',
@@ -37,8 +36,8 @@ const NoteRecognitionSetup = () => {
             <P>Choose an instrument</P>
             <Select onChange={(e) => setTmpScore({...tmpScore, selectedInstrument: e.target.value })} >                
                 {
-                    Instruments.map(instrument => (
-                        <option key={instrument.id} value={instrument.id}>{instrument.name}</option>
+                    Instruments.map((instrument, index) => (
+                        <option key={index} value={instrument.id}>{instrument.name}</option>
                     ))
                 }
             </Select>

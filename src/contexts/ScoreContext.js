@@ -5,7 +5,6 @@ const ScoreListContext = createContext()
 
 const ScoreListContextProvider = ({children}) => {
     const [scoreList, setScoreList] = useState([{
-        gameNb: 0,
         gameId: '1',
         selectedInstrument: '1',
         difficultyLevel: 'easy',
