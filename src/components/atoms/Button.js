@@ -4,7 +4,7 @@ const Button = styled.button`
     display: block;
     height: 40px;
     width: 100px;
-    background: cornflowerblue;
+    background: ${props => props.theme.colors.PrimaryColor};
     color: white;
     border: 0;
 
