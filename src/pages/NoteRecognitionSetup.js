@@ -4,7 +4,7 @@
 // Imports
 /* import { Link } from 'react-router-dom'; */
 import StyledLink from '../components/atoms/StyledLink';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import ScoreListContext from "../contexts/ScoreContext"
 
 import PageContainer from "../components/atoms/PageContainer";
@@ -28,13 +28,18 @@ const NoteRecognitionSetup = () => {
 
     // Consume context
     const { noteSettings, setNoteSettings } = useContext(ScoreListContext);
-
     const instrumentList = NotesList.map(instrument => instrument.name);
+
+    useEffect(()=> {
+        setNoteSettings({...noteSettings, selectedInstrument: instrumentList[0]});
+    }, []);
 
     // For debugigns
 /*     useEffect(() => {
         console.log(tmpScore);
     }, [tmpScore]); */
+
+    console.log('0', instrumentList[0])
 
     // JSX
     return (
@@ -46,7 +51,7 @@ const NoteRecognitionSetup = () => {
                 <Select onChange={(e) => setNoteSettings({...noteSettings, selectedInstrument: e.target.value })} >
                     {
                         instrumentList.map((instrument, index) => (
-                            <option key={index} >{instrument}</option>
+                            <option key={index}>{instrument}</option>
                         ))
                     }
                 </Select>

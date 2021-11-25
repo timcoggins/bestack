@@ -58,7 +58,7 @@ const InstrumentRecognition = () => {
   const checkAnswer = (answer) => {
     // If the user has already chosen an answer dont listen to another
     if (userAnswer !== "") return;
-      setUserAnswer(answer)
+    setUserAnswer(answer)
     // Check the answer
     if (answer === question.name) {
       // setMsg("Correct");
@@ -76,7 +76,7 @@ const InstrumentRecognition = () => {
    * Goes to the next question or the results page
    */
   const nextQuestion = () => {
-    if(userAnswer === '') return
+    if(userAnswer === '') return;
     setUserAnswer('')
     if (questions !== instrumentSettings.numberOfQuestions) {
       // setMsg("");
