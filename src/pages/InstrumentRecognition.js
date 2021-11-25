@@ -24,16 +24,16 @@ const InstrumentRecognition = () => {
         }
 
     }
-
+    console.log(question)
     return(
         <PageContainer>
             <H1>Instrument Recognition</H1>
             <P>Listen and choose an instrument</P>
 
             <Center>
-                <audio controls>
+                {!msg && <audio controls>
                     <source src={question.audio} type="audio/wav" />
-                </audio>
+                </audio>}
             </Center>
             <InstrumentContainer>
                 {InstrumentRecognitionList.map(item => 
@@ -44,8 +44,9 @@ const InstrumentRecognition = () => {
                 )}
             </InstrumentContainer>
             <P>{msg}</P>
-            <Button onClick={() =>{
-                setQuestion(generateRandomInstrument())
+            <Button onClick={() => {
+                setMsg('')
+                setQuestion(InstrumentRecognitionList[generateRandomInstrument('easy')])
             }}>Next</Button>
         </PageContainer>
     )
