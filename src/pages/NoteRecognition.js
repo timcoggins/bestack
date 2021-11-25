@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import PageContainer from "../components/atoms/PageContainer"
 import H1 from "../components/atoms/H1"
 import P from "../components/atoms/P"
@@ -10,15 +10,12 @@ import generateRandomNote from '../utils/generateRandomNote';
 const NoteRecognition = () => {
     const [ note, setNote ] = useState(`${generateRandomNote('easy', 'piano')}`)
     const [ msg, setMsg ] = useState('')
+    const [ score, setScore ] = useState(0)
     
-    useEffect(() => {
-        setNote(`${generateRandomNote('easy', 'piano')}`)
-    }, [])
-
     const checkNote = (input) => {
         if(input === note) {
-            console.log('hello!')
             setMsg('Correct!')
+            setScore(score + 1)
         } else {
             setMsg('Incorrect')
         }
@@ -40,12 +37,13 @@ return (
         <Button onClick={() => checkNote('A')}>A</Button>
         <Button onClick={() => checkNote('B')}>B</Button>
 
-        {msg && <p>{msg}</p>}
+        {msg ? <p>{msg}</p> : <p>Choose a note</p>}
 
         <Button onClick={() => {
             setNote(`${generateRandomNote('easy', 'piano')}`);
             setMsg('')
         }}>Next Note</Button>
+        <P>Score: {score}</P>
     </PageContainer>
 
 )
