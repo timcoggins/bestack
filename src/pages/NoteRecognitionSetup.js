@@ -15,6 +15,7 @@ import H1 from "../components/atoms/H1";
 import P from "../components/atoms/P";
 import Select from '../components/atoms/Select';
 import Button from "../components/atoms/Button";
+import Center from '../components/atoms/Center'
 
 /**
  * NoteRecognitionSetup
@@ -51,8 +52,9 @@ const NoteRecognitionSetup = () => {
             </Select>
 
             <ChooseNbQuest />
-     
-            <StyledLink to='/noterecognition'><Button>Start Game</Button></StyledLink>
+
+                <StyledLink to='/noterecognition'><Button style={{display: 'inline'}}>Start Game</Button></StyledLink>
+
         </PageContainer>
     )
 }

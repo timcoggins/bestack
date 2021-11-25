@@ -83,11 +83,10 @@ const InstrumentRecognition = () => {
     // JSX
     return(
         <PageContainer>
-            <H1>Instrument Recognition</H1>
-            <P>Listen and choose an instrument</P>
-            <P>Difficulty: {instrumentSettings.difficulty}</P>
-            <P>Score: {score}</P>
-            <P>Questions: {questions} / {instrumentSettings.numberOfQuestions} </P>
+            <P>Listen closely and pick which instrument is playing</P>
+            {/*<P>Difficulty: {instrumentSettings.difficulty}</P>*/}
+            {/*<P>Score: {score}</P>*/}
+            {/*<P>Questions: {questions} / {instrumentSettings.numberOfQuestions} </P>*/}
 
             <Center>
                 {!msg && <audio controls>

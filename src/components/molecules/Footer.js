@@ -5,7 +5,7 @@ const Footer = () => {
 
     return (
         <FooterContainer>
-        <P>Created by Team BeStack</P>
+        <P>Created by <a href={'http://https://github.com/timcoggins/bestack'} style={{color: 'white'}}>Team BeStack</a></P>
         </FooterContainer>
     )
 }

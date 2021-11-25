@@ -17,6 +17,7 @@ import P from "../components/atoms/P"
 import Select from '../components/atoms/Select'
 import Button from "../components/atoms/Button"
 import Input from "../components/atoms/Input"
+import styled from 'styled-components'
 
 /**
  * InstrumentRecognitionSetup
@@ -39,19 +40,27 @@ const InstrumentRecognitionSetup = () => {
 
     return (
         <PageContainer>
-            <H1>Instrument Recogntion Setup</H1>
-            <P>Choose an difficulty</P>
-            <Select value={instrumentSettings.difficulty} onChange={(e) => handleChange(e)}>
-                <option value='easy'>Easy</option>
-                <option value='medium'>Medium</option>
-                <option value='hard'>Hard</option>
-            </Select>
-
-            <ChooseNbQuest />
-            
-            <StyledLink to='/instrumentrecognition'><Button>Start Game</Button></StyledLink>
+            <H1>What's that instrument?</H1>
+            <Controls>
+                <P>Choose an difficulty</P>
+                <Select value={instrumentSettings.difficulty} onChange={(e) => handleChange(e)}>
+                    <option value='easy'>Easy</option>
+                    <option value='medium'>Medium</option>
+                    <option value='hard'>Hard</option>
+                </Select>
+            </Controls>
+            <Controls>
+                <ChooseNbQuest />
+            </Controls>
+            <StyledLink to='/instrumentrecognition'><Button>Start!</Button></StyledLink>
         </PageContainer>
     )
 }
 
 export default InstrumentRecognitionSetup
+
+const Controls = styled.div`
+    display: flex;
+    place-content: space-between;
+    margin: 30px 0;
+`;

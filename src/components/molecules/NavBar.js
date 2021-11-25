@@ -35,4 +35,8 @@ const Bubble = styled.div`
     border: 1px ${props => props.theme.colors.HoverColor} solid;
     border-radius: 4px;
     padding: 5px 2px 5px 5px;
+    transition: .5s ease;
+    &:hover {
+      background: ${props => props.theme.colors.HoverColor};
+    }
 `;
