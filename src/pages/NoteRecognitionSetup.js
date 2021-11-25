@@ -50,13 +50,11 @@ const NoteRecognitionSetup = () => {
             </Select>
 
             <P>Decide how many questions to play</P>
-            <Input
-                type="number"
-                min="1"
-                max="10"
-                onChange={(e) => setNoteSettings({...noteSettings, numberOfQuestions: parseInt(e.target.value, 10) })}
-                value={noteSettings.numberOfQuestions}
-            />
+            <Select onChange={(e) => setNoteSettings({...noteSettings, numberOfQuestions: e.target.value })} >
+                <option value={5} >5</option>
+                <option value={10} >10</option>
+                <option value={20} >20</option>
+            </Select>
      
             <StyledLink to='/noterecognition'><Button>Start Game</Button></StyledLink>
         </PageContainer>
