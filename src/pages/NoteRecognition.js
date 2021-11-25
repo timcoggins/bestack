@@ -11,14 +11,14 @@ import P from "../components/atoms/P";
 import Button from "../components/atoms/Button";
 import SheetMusic from "react-sheet-music";
 import Controls from "../components/atoms/Controls";
-<<<<<<< HEAD
+
 import NotesList from "../assets/notesList";
 import Instruments from "../assets/instrumentList";
-=======
+
 import Center from "../components/atoms/Center";
 
 const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
->>>>>>> 27e775c34490c6c78da27d440baf96ed90eb8c01
+
 
 /**
  * NoteRecognition
