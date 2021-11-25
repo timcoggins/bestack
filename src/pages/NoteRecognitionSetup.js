@@ -17,6 +17,7 @@ import Select from '../components/atoms/Select';
 import Button from "../components/atoms/Button";
 
 import Center from '../components/atoms/Center'
+import Controls from '../components/atoms/Controls'
 import ChooseDifficulty from '../components/molecules/ChooseDifficulty';
 
 /**
@@ -36,21 +37,25 @@ const NoteRecognitionSetup = () => {
     // JSX
     return (
         <PageContainer>
-            <H1>Note Recogntion Setup</H1>
-            <P>Choose an instrument</P>
-            <Select onChange={(e) => setNoteSettings({...noteSettings, selectedInstrument: e.target.value })} >                
-                {
-                    Instruments.map((instrument, index) => (
-                        <option key={index} value={instrument.id}>{instrument.name}</option>
-                    ))
-                }
-            </Select>
+            <H1>What's that Note?!</H1>
+
+            <Controls>
+            <P>Choose your instrument</P>
+                <Select onChange={(e) => setNoteSettings({...noteSettings, selectedInstrument: e.target.value })} >
+                    {
+                        Instruments.map((instrument, index) => (
+                            <option key={index} value={instrument.id}>{instrument.name}</option>
+                        ))
+                    }
+                </Select>
+            </Controls>
 
             <ChooseDifficulty  options={noteSettings} setOptions={setNoteSettings} />
 
             <ChooseNbQuest options={noteSettings} setOptions={setNoteSettings} />
-     
-            <StyledLink to='/noterecognition'><Button>Start Game</Button></StyledLink>
+            <Center>
+                <StyledLink to='/noterecognition'><Button>Start!</Button></StyledLink>
+            </Center>
         </PageContainer>
     )
 }

@@ -17,6 +17,7 @@ export default GameSelector
 
 // styles temp
 const Container = styled.div`
+    
     color: black;
     display: flex;
     place-content: space-between;

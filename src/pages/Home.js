@@ -21,7 +21,7 @@ const Home = (props) => {
     return (
         <PageContainer>
             {/* <H1>Train your Theory</H1> */}
-            <Center>
+
             <P>Choose a game below to get started!</P>
             <StyledLink to='/noterecognitionsetup' ><GameSelector title={'What\'s that note?'} image={'./images/sound-button.png'}/></StyledLink>
             <StyledLink to='/instrumentrecognitionsetup' ><GameSelector title={'What\'s that instrument?'} image={'./images/music-instrument.png'}/></StyledLink>
@@ -29,7 +29,7 @@ const Home = (props) => {
 
             <P>See your results</P>
             <StyledLink to='/results' ><Button>Results</Button></StyledLink>
-            </Center>
+
         </PageContainer>
     )
 }

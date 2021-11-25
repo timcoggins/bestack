@@ -16,6 +16,7 @@ import InstrumentContainer from "../components/atoms/InstrumentContainer"
 import InstrumentImg from "../components/atoms/InstrumentImg"
 import Button from "../components/atoms/Button"
 import Center from '../components/atoms/Center'
+import Controls from '../components/atoms/Controls'
 
 /**
  * InstrumentRecognition
@@ -109,9 +110,10 @@ const InstrumentRecognition = () => {
 
             <P>{msg}</P>
 
-            <Button onClick={() => nextQuestion()}>Next</Button>
-
-            <StyledLink to='/results' ><Button disabled={resultBtnDisabled}>Results</Button></StyledLink>
+            <Controls middle>
+                <StyledLink to='/results' ><Button disabled={resultBtnDisabled}>Finish</Button></StyledLink>
+                <Button onClick={() => nextQuestion()}>Next</Button>
+            </Controls>
 
         </PageContainer>
     )

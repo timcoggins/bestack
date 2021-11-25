@@ -18,6 +18,7 @@ import P from "../components/atoms/P"
 import Button from "../components/atoms/Button"
 import Input from "../components/atoms/Input"
 import styled from 'styled-components'
+import Center from "../components/atoms/Center";
 
 
 /**
@@ -45,7 +46,11 @@ const InstrumentRecognitionSetup = () => {
             <H1>What's that instrument?</H1>
                 <ChooseDifficulty  options={instrumentSettings} setOptions={setInstrumentSettings} />
                 <ChooseNbQuest options={instrumentSettings} setOptions={setInstrumentSettings} />
-            <StyledLink to='/instrumentrecognition'><Button>Start!</Button></StyledLink>
+            <Center>
+                <StyledLink to='/instrumentrecognition'>
+                    <Button>Start!</Button>
+                </StyledLink>
+            </Center>
         </PageContainer>
     )
 }

@@ -11,6 +11,8 @@ import H1 from "../components/atoms/H1";
 import P from "../components/atoms/P";
 import Button from "../components/atoms/Button";
 import SheetMusic from 'react-sheet-music';
+import Controls from '../components/atoms/Controls'
+import Center from '../components/atoms/Center'
 
 /**
  * NoteRecognition
@@ -61,33 +63,38 @@ const NoteRecognition = () => {
     // JSX
     return (
         <PageContainer>
-            <H1>Note Recognition</H1>
             <P>Go ahead, try to identify the notes!</P>
-            <SheetMusic
+            <P>Score: {score}</P>
+
+                <SheetMusic
                 notation={`${note}4`}
-            />
-            <Button onClick={() => checkNote('C')}>C</Button>
-            <Button onClick={() => checkNote('D')}>D</Button>
-            <Button onClick={() => checkNote('E')}>E</Button>
-            <Button onClick={() => checkNote('F')}>F</Button>
-            <Button onClick={() => checkNote('G')}>G</Button>
-            <Button onClick={() => checkNote('A')}>A</Button>
-            <Button onClick={() => checkNote('B')}>B</Button>
+                />
 
-            {msg ? <p>{msg}</p> : <p>Choose a note</p>}
+            <Controls grid style={{marginTop: '0'}}>
+                <Button onClick={() => checkNote('C')}>C</Button>
+                <Button onClick={() => checkNote('D')}>D</Button>
+                <Button onClick={() => checkNote('E')}>E</Button>
+                <Button onClick={() => checkNote('F')}>F</Button>
+                <Button onClick={() => checkNote('G')}>G</Button>
+                <Button onClick={() => checkNote('A')}>A</Button>
+                <Button onClick={() => checkNote('B')}>B</Button>
+            </Controls>
 
+
+            {msg ? <p>{msg}</p> : ''}
+            <Controls middle>
+            <StyledLink to='/results' ><Button disabled={resultBtnDisabled}>Results</Button></StyledLink>
             <Button
                 disabled={nextBtnDisabled}
                 onClick={() => {
-                setNote(`${generateRandomNote('easy', 'piano')}`);
-                setMsg('');
-                setQuestCount(questCount + 1);
-            }}
+                    setNote(`${generateRandomNote('easy', 'piano')}`);
+                    setMsg('');
+                    setQuestCount(questCount + 1);
+                }}
             >
                 Next Note
             </Button>
-            <P>Score: {score}</P>
-            <StyledLink to='/results' ><Button disabled={resultBtnDisabled}>Results</Button></StyledLink>
+            </Controls>
         </PageContainer>
     )
 }

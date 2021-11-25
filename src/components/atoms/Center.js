@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const Center = styled.div`
-    text-align: center;
+    display: grid;
+    place-items: center;
 `;
 
 export default Center;
