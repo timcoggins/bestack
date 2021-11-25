@@ -29,16 +29,16 @@ const Results = () => {
 
   return (
     <PageContainer>
-      <H1>Results</H1>
+      <H1>Scores</H1>
         <P>Receive a diamond for every correct answer!</P>
       <P>
         {Object.keys(scoreList).length !== 0
-          ? `Last result: ${scoreList[0].scoreInPc} %`
-          : "No result yet..."}
+          ? `Last game: ${scoreList[0].scoreInPc} %`
+          : "No scores yet... start playing!"}
       </P>
 
 
-      <Center>
+        {scoreList.length > 0 && <Center>
         <Table>
           <tbody>
             <tr>
@@ -54,7 +54,7 @@ const Results = () => {
               ))}
           </tbody>
         </Table>
-      </Center>
+      </Center>}
 
       <Center style={{ marginTop: "80px" }}>
         <StyledLink to="/">
