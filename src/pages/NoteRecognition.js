@@ -11,6 +11,7 @@ import P from "../components/atoms/P";
 import Button from "../components/atoms/Button";
 import SheetMusic from "react-sheet-music";
 import Controls from "../components/atoms/Controls";
+import Center from "../components/atoms/Center";
 
 const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 
@@ -33,6 +34,8 @@ const NoteRecognition = () => {
   const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
   const [questCount, setQuestCount] = useState(1);
   const [ userAnswer, setUserAnswer ] = useState('')
+
+
 
   /**
    * Check user choice
@@ -96,6 +99,11 @@ const NoteRecognition = () => {
             width={100}
         />
       </div>
+
+
+      {!msg && <Center><audio controls >
+        <source src={`./sounds/${note}.wav`} type="audio/wav" />
+      </audio></Center>}
 
       <Controls grid style={{ marginTop: "0" }}>
         { notes.map(item =>
