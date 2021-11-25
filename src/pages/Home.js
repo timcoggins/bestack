@@ -27,8 +27,9 @@ const Home = (props) => {
             <StyledLink to='/instrumentrecognitionsetup' ><GameSelector title={'What\'s that instrument?'} image={'./images/music-instrument.png'}/></StyledLink>
             <GameSelector title={'Intervals (Coming Soon)'} image={'./images/audio-waves.png'} disabled={true}/>
 
-            <P>See your results</P>
-            <StyledLink to='/results' ><Button>Results</Button></StyledLink>
+            <Center>
+                <StyledLink to='/results' ><Button>Results</Button></StyledLink>
+            </Center>
 
         </PageContainer>
     )
