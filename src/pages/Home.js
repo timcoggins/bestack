@@ -20,14 +20,16 @@ import Center from "../components/atoms/Center";
 const Home = (props) => {
     return (
         <PageContainer>
-            <H1>Welcome To the game</H1>
-            <P>Choose a game below</P>
-            <StyledLink to='/noterecognitionsetup' ><GameSelector title={'Note Recoginiton'}/></StyledLink>
-            <StyledLink to='/instrumentrecognitionsetup' ><GameSelector title={'Instrument Recoginiton'}/></StyledLink>
+            {/* <H1>Train your Theory</H1> */}
+            <Center>
+            <P>Choose a game below to get started!</P>
+            <StyledLink to='/noterecognitionsetup' ><GameSelector title={'What\'s that note?'} image={'./images/sound-button.png'}/></StyledLink>
+            <StyledLink to='/instrumentrecognitionsetup' ><GameSelector title={'What\'s that instrument?'} image={'./images/music-instrument.png'}/></StyledLink>
+            <GameSelector title={'Intervals (Coming Soon)'} image={'./images/audio-waves.png'} disabled={true}/>
+
             <P>See your results</P>
-      
             <StyledLink to='/results' ><Button>Results</Button></StyledLink>
-       
+            </Center>
         </PageContainer>
     )
 }

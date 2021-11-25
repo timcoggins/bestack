@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import P from '../atoms/P'
 import Nav from '../atoms/Nav'
 import Logo from '../atoms/Logo'
@@ -7,16 +8,20 @@ const NavBar = () => {
 
     return (
         <Nav>
-            <div>
+            
             <Link to='/'>
                 <Logo src='./images/BEStackLogo.png'/> 
                 {/* <P>Music Trainer</P> */}
             </Link>
-            Music Trainer
-            </div>
-            <P>Something</P>
+            <NavBarTitle>Train your Theory</NavBarTitle>
         </Nav>
     )
 }
 
 export default NavBar
+
+const NavBarTitle = styled.h2`
+    color: white;
+    margin: 0 0 0 15px;
+
+`
