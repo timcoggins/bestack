@@ -4,6 +4,9 @@
 
 // Imports
 /* import { Link } from 'react-router-dom'; */
+import { useContext } from 'react';
+import ScoreListContext from '../contexts/ScoreContext';
+
 import StyledLink from '../components/atoms/StyledLink';
 import PageContainer from "../components/atoms/PageContainer"
 import H1 from "../components/atoms/H1"
@@ -15,6 +18,12 @@ import Button from "../components/atoms/Button";
  * @returns {JSX.Element}
  */
 const Results = () => {
+
+    // Consume the context
+    const { scoreList } = useContext(ScoreListContext);
+
+    console.log(scoreList)
+
     return (
         <PageContainer>
             <H1>Results</H1>

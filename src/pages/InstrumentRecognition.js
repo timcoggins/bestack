@@ -24,7 +24,7 @@ import Center from '../components/atoms/Center'
 const InstrumentRecognition = () => {
 
     // Consume the context
-    const { instrumentSettings } = useContext(ScoreListContext);
+    const { instrumentSettings, scoreList, setScoreList } = useContext(ScoreListContext);
 
     const FilteredInstruments = InstrumentRecognitionList.filter(item => {
         if(instrumentSettings.difficulty === 'easy' && item.difficulty > 1 ) return false
@@ -59,6 +59,26 @@ const InstrumentRecognition = () => {
         }
     }
 
+    /**
+     * Goes to the next question or the results page
+     */
+    const nextQuestion = () => {
+        if(questions !== instrumentSettings.numberOfQuestions) {
+            setMsg('')
+            setQuestion(FilteredInstruments[generateRandomInstrument(FilteredInstruments)])
+        } else {
+            setMsg('Finished!')
+            setScoreList([{
+                gameId: '2',
+                difficultyLevel: instrumentSettings.difficulty,
+                questNb: questions,
+                ScoreInPc: score
+            }])
+            window.location = '/results'
+        }
+        
+    }
+
 
     // JSX
     return(
@@ -86,17 +106,7 @@ const InstrumentRecognition = () => {
 
             <P>{msg}</P>
 
-            <Button onClick={() => {
-                if(questions !== instrumentSettings.numberOfQuestions) {
-                    setMsg('')
-                    setQuestion(FilteredInstruments[generateRandomInstrument(FilteredInstruments)])
-                } else {
-                    setMsg('Finished!')
-                    // TODO Add score to the context
-                    window.location = '/results'
-                }
-                
-            }}>Next</Button>
+            <Button onClick={() => nextQuestion()}>Next</Button>
 
         </PageContainer>
     )

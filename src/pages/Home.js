@@ -10,6 +10,7 @@ import P from "../components/atoms/P"
 import StyledLink from '../components/atoms/StyledLink';
 import GameSelector from "../components/molecules/GameSelector";
 import Button from "../components/atoms/Button";
+import Center from "../components/atoms/Center";
 
 /**
  * Home Component
@@ -24,7 +25,9 @@ const Home = (props) => {
             <StyledLink to='/noterecognitionsetup' ><GameSelector title={'Note Recoginiton'}/></StyledLink>
             <StyledLink to='/instrumentrecognitionsetup' ><GameSelector title={'Instrument Recoginiton'}/></StyledLink>
             <P>See your results</P>
+      
             <StyledLink to='/results' ><Button>Results</Button></StyledLink>
+       
         </PageContainer>
     )
 }
