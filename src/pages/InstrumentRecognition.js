@@ -31,8 +31,6 @@ const InstrumentRecognition = () => {
   const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
 
-  console.log(instrumentSettings);
-
   const FilteredInstruments = InstrumentRecognitionList.filter((item) => {
     if (instrumentSettings.difficulty === "easy" && item.difficulty > 1)
       return false;

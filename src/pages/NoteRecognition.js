@@ -1,8 +1,10 @@
 /**
  * NoteRecognition.js
  */
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import generateRandomNote from "../utils/generateRandomNote";
+import ShuffleArray from "../utils/ShuffleArray";
+
 import ScoreListContext from "../contexts/ScoreContext";
 import StyledLink from "../components/atoms/StyledLink";
 
@@ -32,12 +34,29 @@ const NoteRecognition = () => {
   // State variables
 
   const currentNotesList = NotesList.filter(instrument => instrument.name === noteSettings.selectedInstrument)[0].notes.easy;
-  const [note, setNote] = useState(`${generateRandomNote("easy", "piano")}`);
+
   const [score, setScore] = useState(0);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
   const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
   const [questCount, setQuestCount] = useState(1);
   const [ userAnswer, setUserAnswer ] = useState('')
+
+  // Random list of question
+  const [randQuestList, setRandQuestList] = useState([])
+
+  useEffect(()=>{
+    const newRandQuestList = [...randQuestList];
+        
+    while (newRandQuestList.length <= noteSettings.numberOfQuestions) {
+      console.log('newRandQuestList1: ', currentNotesList);
+      ShuffleArray(currentNotesList.map(e => newRandQuestList.push(e)));
+      console.log('newRandQuestList2: ', newRandQuestList);
+      setRandQuestList(newRandQuestList);
+    }
+    console.log('randQuestList: ', randQuestList);
+  },)
+
+  const [note, setNote] = useState(randQuestList[questCount - 1]);
 
   /**
    * Check user choice
@@ -67,7 +86,7 @@ const NoteRecognition = () => {
     }
   };
 
-      /**
+     /**
      * Manage the green and red color for the right and wrong answer buttons
      * @param {string} element 
      * @returns {string}
@@ -134,7 +153,7 @@ const NoteRecognition = () => {
           <Button
             disabled={nextBtnDisabled}
             onClick={() => {
-              setNote(`${generateRandomNote("easy", "piano")}`);
+              setNote(randQuestList[questCount - 1]);
               setQuestCount(questCount + 1);
               setUserAnswer('');
               setNextBtnDisabled(true);
