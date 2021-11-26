@@ -22,6 +22,9 @@ const Button = styled.button`
 
     ${props => props.disabled && css`
       background: ${props => props.theme.colors.DisabledColor};
+      &:hover {
+        background: ${props => props.theme.colors.DisabledColor};
+      }
     `}
     ${props => props.correct && css`
       background: ${props => props.theme.colors.CorrectColor};
