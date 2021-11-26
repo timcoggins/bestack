@@ -65,7 +65,8 @@
     */
    const checkNote = (input) => {
      if(userAnswer !== '') return;
-     setUserAnswer(input)
+     setUserAnswer(input);
+
      if (input === note) {
        setScore(score + 1);
        setGem(gem + 1);
@@ -73,19 +74,23 @@
  
      setNextBtnDisabled(false);
     
-     if (questCount >= noteSettings.numberOfQuestions) {
-       console.log("finished");
-       const newScore = {
-         gameId: "1",
-         difficultyLevel: noteSettings.difficulty,
-         scoreInPc: (score / noteSettings.numberOfQuestions) * 100,
-       };
-       const newScoreList = scoreList.slice();
-       newScoreList.unshift(newScore);
-       setScoreList(newScoreList);
-       setResultBtnDisabled(false);
-     }
-   };
+    };
+
+    const nextQuestion = () => {
+
+      if (questCount >= noteSettings.numberOfQuestions) {
+        console.log("finished: " + score + '/' + noteSettings.numberOfQuestions);
+        const newScore = {
+          gameId: "1",
+          difficultyLevel: noteSettings.difficulty,
+          scoreInPc: (score / noteSettings.numberOfQuestions) * 100,
+        };
+        const newScoreList = scoreList.slice();
+        newScoreList.unshift(newScore);
+        setScoreList(newScoreList);
+        setResultBtnDisabled(false);
+      }
+    }
  
       /**
       * Manage the green and red color for the right and wrong answer buttons
@@ -158,6 +163,7 @@
                setQuestCount(questCount + 1);
                setUserAnswer('');
                setNextBtnDisabled(true);
+               nextQuestion();
              }}
            >
              Next Note
