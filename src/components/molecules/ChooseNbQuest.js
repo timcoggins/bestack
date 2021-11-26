@@ -8,7 +8,7 @@ const ChooseNbQuest = (props) => {
 
   return (
     <Controls>
-      <P>Number of Questions</P>
+      <P>Number of questions</P>
       <Select
         onChange={(e) =>
           setOptions({
