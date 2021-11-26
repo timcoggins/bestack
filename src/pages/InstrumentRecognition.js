@@ -62,7 +62,7 @@ const InstrumentRecognition = () => {
       setRandQuestList(newRandQuestList);
     }
     console.log('randQuestList: ', randQuestList);
-  },)
+  },[])
 
   /**
    * Checks the users answer when they click on a button
