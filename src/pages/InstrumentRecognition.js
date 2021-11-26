@@ -59,14 +59,12 @@ const InstrumentRecognition = () => {
     console.log('InstrumentRecognitionList: ', ShuffleArray(FilteredInstruments).map(instr => instr.id));
     const newRandQuestList = [...randQuestList];
     
-    console.log('newRandQuestList1: ', ShuffleArray(FilteredInstruments).map(instr => instr.id));
-    newRandQuestList.push(ShuffleArray(FilteredInstruments).map(instr => instr.id).map());
-    console.log('newRandQuestList2: ', newRandQuestList);
-    newRandQuestList.push(ShuffleArray(FilteredInstruments).map(instr => instr.id).map());
-    console.log('newRandQuestList3: ', newRandQuestList);
-    setRandQuestList(newRandQuestList);
-/*     while (randQuestList.length < instrumentSettings.numberOfQuestions) {
-    } */
+    
+    while (newRandQuestList.length <= instrumentSettings.numberOfQuestions) {
+      ShuffleArray(FilteredInstruments).map(instr => newRandQuestList.push(instr.id));
+      console.log('newRandQuestList: ', newRandQuestList);
+      setRandQuestList(newRandQuestList);
+    }
     console.log('randQuestList: ', randQuestList);
   }, [])
 
