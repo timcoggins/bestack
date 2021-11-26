@@ -2,7 +2,7 @@
  * NoteRecognition.js
  */
  import { useState, useEffect, useContext } from "react";
-/*  import generateRandomNote from "../utils/generateRandomNote"; */
+
  import ShuffleArray from "../utils/ShuffleArray";
  
  import ScoreListContext from "../contexts/ScoreContext";
@@ -15,12 +15,8 @@
  import Controls from "../components/atoms/Controls";
  
  import NotesList from "../assets/notesList";
- /* import Instruments from "../assets/instrumentList"; */
  
  import Center from "../components/atoms/Center";
- 
- /* const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'] */
- 
  
  /**
   * NoteRecognition
@@ -48,16 +44,15 @@
      const newRandQuestList = [...randQuestList];
          
      while (newRandQuestList.length <= noteSettings.numberOfQuestions) {
-       console.log('newRandQuestList1: ', currentNotesList);
+
        ShuffleArray(currentNotesList.map(e => newRandQuestList.push(e)));
-       console.log('newRandQuestList2: ', newRandQuestList);
+
        setRandQuestList(newRandQuestList);
      }
-     console.log('randQuestList: ', randQuestList);
+
    }, [])
  
    const [note, setNote] = useState(randQuestList[questCount]);
-   console.log(note)
  
    /**
     * Check user choice
@@ -79,7 +74,7 @@
     const nextQuestion = () => {
 
       if (questCount >= noteSettings.numberOfQuestions) {
-        console.log("finished: " + score + '/' + noteSettings.numberOfQuestions);
+
         const newScore = {
           gameId: "1",
           difficultyLevel: noteSettings.difficulty,

@@ -25,17 +25,6 @@ const InstrumentRecognitionSetup = () => {
     const { instrumentSettings, setInstrumentSettings } = useContext(ScoreListContext);
     console.log(instrumentSettings.numberOfQuestions);
 
-    /**
-     * HandleChange
-     * @param {*} e 
-     */
-    //const handleChange = (e) => setInstrumentSettings({...instrumentSettings, difficulty: e.target.value});
-
-    /**
-     * Handle when the user changes the number of questions
-     */
-    //const handleQuestionsChange = (e) => setInstrumentSettings({...instrumentSettings, numberOfQuestions: parseInt(e.target.value)});
-
     return (
         <PageContainer>
             <H1>What's that instrument?</H1>

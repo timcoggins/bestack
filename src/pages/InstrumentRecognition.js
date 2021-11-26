@@ -58,10 +58,8 @@ const InstrumentRecognition = () => {
         
     while (newRandQuestList.length <= instrumentSettings.numberOfQuestions) {
       ShuffleArray(FilteredInstruments).map(instr => newRandQuestList.push(instr.id));
-      console.log('newRandQuestList: ', newRandQuestList);
       setRandQuestList(newRandQuestList);
     }
-    console.log('randQuestList: ', randQuestList);
   },[]);
 
   /**
@@ -74,17 +72,14 @@ const InstrumentRecognition = () => {
     setUserAnswer(answer)
     // Check the answer
     if (answer === question.name) {
-      // setMsg("Correct");
       setScore(score + 1);
       setGem(gem + 1);
-    } else {
-      // setMsg("Incorrect");
     }
+
     setQuestions(questions + 1);
     setNextBtnDisabled(false);
   };
 
-  console.log(userAnswer)
   /**
    * Goes to the next question or the results page
    */
@@ -117,9 +112,6 @@ const InstrumentRecognition = () => {
   return (
     <PageContainer>
       <P>Listen closely and pick which instrument is playing</P>
-      {/*<P>Difficulty: {instrumentSettings.difficulty}</P>*/}
-      {/*<P>Score: {score}</P>*/}
-      {/*<P>Questions: {questions} / {instrumentSettings.numberOfQuestions} </P>*/}
 
       <Center>
 
@@ -139,8 +131,6 @@ const InstrumentRecognition = () => {
           </Instrument>
         ))}
       </InstrumentContainer>
-
-      {/*<P>{msg}</P>*/}
 
       <Controls middle>
         {!resultBtnDisabled ? (
