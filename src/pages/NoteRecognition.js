@@ -112,8 +112,8 @@ const NoteRecognition = () => {
         {currentNotesList.map((element, index) => {
           return (
             <Button
-
               key={index}
+              disabled={!nextBtnDisabled}
               onClick={() => checkNote(element)}
               correct={userAnswer && element === note}
               incorrect={checkIncorrect(element)}
@@ -136,6 +136,7 @@ const NoteRecognition = () => {
               setNote(`${generateRandomNote("easy", "piano")}`);
               setQuestCount(questCount + 1);
               setUserAnswer('');
+              setNextBtnDisabled(true);
             }}
           >
             Next Note
