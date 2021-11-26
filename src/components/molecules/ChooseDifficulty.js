@@ -7,7 +7,7 @@ const ChooseDifficulty = (props) => {
 
   return (
     <Controls>
-      <P>Choose an difficulty</P>
+      <P>Choose a difficulty</P>
       <Select
         onChange={(e) => setOptions({ ...options, difficulty: e.target.value })}
         value={options.difficulty}
