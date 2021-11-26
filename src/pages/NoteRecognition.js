@@ -41,8 +41,11 @@ const NoteRecognition = () => {
   const [questCount, setQuestCount] = useState(1);
   const [ userAnswer, setUserAnswer ] = useState('')
 
+
+
+
   // Random list of question
-  const [randQuestList, setRandQuestList] = useState([])
+  const [randQuestList, setRandQuestList] = useState(ShuffleArray(notes))
 
   useEffect(()=>{
     const newRandQuestList = [...randQuestList];
@@ -54,9 +57,10 @@ const NoteRecognition = () => {
       setRandQuestList(newRandQuestList);
     }
     console.log('randQuestList: ', randQuestList);
-  },)
+  }, [])
 
   const [note, setNote] = useState(randQuestList[questCount - 1]);
+  console.log(note)
 
   /**
    * Check user choice
