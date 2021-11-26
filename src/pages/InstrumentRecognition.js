@@ -86,7 +86,7 @@ const InstrumentRecognition = () => {
     } else {
       // setMsg("Finished!");
       const newScore = {
-        gameId: "1",
+        gameId: "2",
         difficultyLevel: instrumentSettings.difficulty,
         scoreInPc: (score / instrumentSettings.numberOfQuestions) * 100,
       };
