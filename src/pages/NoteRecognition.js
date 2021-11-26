@@ -2,7 +2,7 @@
  * NoteRecognition.js
  */
 import { useState, useEffect, useContext } from "react";
-import generateRandomNote from "../utils/generateRandomNote";
+/* import generateRandomNote from "../utils/generateRandomNote"; */
 import ShuffleArray from "../utils/ShuffleArray";
 
 import ScoreListContext from "../contexts/ScoreContext";
@@ -15,11 +15,11 @@ import SheetMusic from "react-sheet-music";
 import Controls from "../components/atoms/Controls";
 
 import NotesList from "../assets/notesList";
-import Instruments from "../assets/instrumentList";
+/* import Instruments from "../assets/instrumentList"; */
 
 import Center from "../components/atoms/Center";
 
-const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+/* const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'] */
 
 
 /**
@@ -45,7 +45,7 @@ const NoteRecognition = () => {
 
 
   // Random list of question
-  const [randQuestList, setRandQuestList] = useState(ShuffleArray(notes))
+  const [randQuestList, setRandQuestList] = useState(ShuffleArray(currentNotesList))
 
   useEffect(()=>{
     const newRandQuestList = [...randQuestList];
