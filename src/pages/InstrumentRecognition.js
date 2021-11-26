@@ -2,9 +2,10 @@
  * InstrumentRecognition.js
  * Game page
  */
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import InstrumentRecognitionList from "../assets/instrumentRecognitionList";
 import generateRandomInstrument from "../utils/generateRandomInstrument";
+import ShuffleArray from "../utils/ShuffleArray";
 import ScoreListContext from "../contexts/ScoreContext";
 
 import StyledLink from "../components/atoms/StyledLink";
@@ -46,10 +47,28 @@ const InstrumentRecognition = () => {
   const [question, setQuestion] = useState(
     FilteredInstruments[generateRandomInstrument(FilteredInstruments)]
   );
-  // const [msg, setMsg] = useState("");
+
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState(0);
   const [ userAnswer, setUserAnswer ] = useState('')
+
+  // Random list of question
+  const [randQuestList, setRandQuestList] = useState([])
+
+  useEffect(()=>{
+    console.log('InstrumentRecognitionList: ', ShuffleArray(FilteredInstruments).map(instr => instr.id));
+    const newRandQuestList = [...randQuestList];
+    
+    console.log('newRandQuestList1: ', ShuffleArray(FilteredInstruments).map(instr => instr.id));
+    newRandQuestList.push(ShuffleArray(FilteredInstruments).map(instr => instr.id).map());
+    console.log('newRandQuestList2: ', newRandQuestList);
+    newRandQuestList.push(ShuffleArray(FilteredInstruments).map(instr => instr.id).map());
+    console.log('newRandQuestList3: ', newRandQuestList);
+    setRandQuestList(newRandQuestList);
+/*     while (randQuestList.length < instrumentSettings.numberOfQuestions) {
+    } */
+    console.log('randQuestList: ', randQuestList);
+  }, [])
 
   /**
    * Checks the users answer when they click on a button
