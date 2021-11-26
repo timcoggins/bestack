@@ -16,6 +16,10 @@ const Button = styled.button`
         background: ${props => props.theme.colors.HoverColor};
     }
 
+    ${props => props.square && css`
+        border-radius: 4px;
+    `}
+
     ${props => props.disabled && css`
       background: ${props => props.theme.colors.DisabledColor};
     `}

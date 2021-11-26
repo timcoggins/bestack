@@ -118,6 +118,7 @@ const NoteRecognition = () => {
               correct={userAnswer === element && userAnswer === note}
 
               incorrect={checkIncorrect(element)}
+                square
             >
               {element}
             </Button>
