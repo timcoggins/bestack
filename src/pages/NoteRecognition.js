@@ -113,10 +113,9 @@ const NoteRecognition = () => {
           return (
             <Button
 
-                key={index}
+              key={index}
               onClick={() => checkNote(element)}
-              correct={userAnswer === element && userAnswer === note}
-
+              correct={userAnswer && element === note}
               incorrect={checkIncorrect(element)}
             >
               {element}
