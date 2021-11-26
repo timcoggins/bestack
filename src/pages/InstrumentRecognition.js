@@ -56,17 +56,15 @@ const InstrumentRecognition = () => {
   const [randQuestList, setRandQuestList] = useState([])
 
   useEffect(()=>{
-    console.log('InstrumentRecognitionList: ', ShuffleArray(FilteredInstruments).map(instr => instr.id));
     const newRandQuestList = [...randQuestList];
-    
-    
+        
     while (newRandQuestList.length <= instrumentSettings.numberOfQuestions) {
       ShuffleArray(FilteredInstruments).map(instr => newRandQuestList.push(instr.id));
       console.log('newRandQuestList: ', newRandQuestList);
       setRandQuestList(newRandQuestList);
     }
     console.log('randQuestList: ', randQuestList);
-  }, [])
+  },)
 
   /**
    * Checks the users answer when they click on a button
@@ -96,12 +94,8 @@ const InstrumentRecognition = () => {
     if(userAnswer === '') return;
     setUserAnswer('')
     if (questions !== instrumentSettings.numberOfQuestions) {
-      // setMsg("");
-      setQuestion(
-        FilteredInstruments[generateRandomInstrument(FilteredInstruments)]
-      );
+      setQuestion(InstrumentRecognitionList.filter(instrument => instrument.id === randQuestList[questions])[0]);
     } else {
-      // setMsg("Finished!");
       const newScore = {
         gameId: "2",
         difficultyLevel: instrumentSettings.difficulty,
