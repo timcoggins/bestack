@@ -39,8 +39,6 @@ const NoteRecognitionSetup = () => {
         console.log(tmpScore);
     }, [tmpScore]); */
 
-    console.log('0', instrumentList[0])
-
     // JSX
     return (
         <PageContainer>
