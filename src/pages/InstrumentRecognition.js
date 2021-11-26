@@ -2,9 +2,10 @@
  * InstrumentRecognition.js
  * Game page
  */
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import InstrumentRecognitionList from "../assets/instrumentRecognitionList";
 import generateRandomInstrument from "../utils/generateRandomInstrument";
+import ShuffleArray from "../utils/ShuffleArray";
 import ScoreListContext from "../contexts/ScoreContext";
 
 import StyledLink from "../components/atoms/StyledLink";
@@ -30,8 +31,6 @@ const InstrumentRecognition = () => {
   const [resultBtnDisabled, setResultBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
 
-  console.log(instrumentSettings);
-
   const FilteredInstruments = InstrumentRecognitionList.filter((item) => {
     if (instrumentSettings.difficulty === "easy" && item.difficulty > 1)
       return false;
@@ -46,10 +45,24 @@ const InstrumentRecognition = () => {
   const [question, setQuestion] = useState(
     FilteredInstruments[generateRandomInstrument(FilteredInstruments)]
   );
-  // const [msg, setMsg] = useState("");
+
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState(0);
   const [ userAnswer, setUserAnswer ] = useState('')
+
+  // Random list of question
+  const [randQuestList, setRandQuestList] = useState([])
+
+  useEffect(()=>{
+    const newRandQuestList = [...randQuestList];
+        
+    while (newRandQuestList.length <= instrumentSettings.numberOfQuestions) {
+      ShuffleArray(FilteredInstruments).map(instr => newRandQuestList.push(instr.id));
+      console.log('newRandQuestList: ', newRandQuestList);
+      setRandQuestList(newRandQuestList);
+    }
+    console.log('randQuestList: ', randQuestList);
+  },[]);
 
   /**
    * Checks the users answer when they click on a button
@@ -79,14 +92,10 @@ const InstrumentRecognition = () => {
     if(userAnswer === '') return;
     setUserAnswer('')
     if (questions !== instrumentSettings.numberOfQuestions) {
-      // setMsg("");
-      setQuestion(
-        FilteredInstruments[generateRandomInstrument(FilteredInstruments)]
-      );
+      setQuestion(InstrumentRecognitionList.filter(instrument => instrument.id === randQuestList[questions])[0]);
     } else {
-      // setMsg("Finished!");
       const newScore = {
-        gameId: "1",
+        gameId: "2",
         difficultyLevel: instrumentSettings.difficulty,
         scoreInPc: (score / instrumentSettings.numberOfQuestions) * 100,
       };
