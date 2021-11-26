@@ -44,6 +44,7 @@ const NoteRecognition = () => {
    * @param input
    */
   const checkNote = (input) => {
+    if(userAnswer !== '') return;
     setUserAnswer(input)
     if (input === note) {
       setScore(score + 1);

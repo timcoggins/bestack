@@ -4,7 +4,7 @@ const NotesList = [
         id: 0,
         name: 'Piano',
         notes: {
-            easy: ['C', 'D', 'E', 'F', 'G', 'A'],
+            easy: ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
             medium: ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'F#'],
             hard: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
         }
