@@ -5,9 +5,6 @@ function getRandomInt(min, max) {
   }
 
 const generateRandomInstrument = (instrumentList) => {
-    
-
-    
     return getRandomInt(0, instrumentList.length);
 }
 
